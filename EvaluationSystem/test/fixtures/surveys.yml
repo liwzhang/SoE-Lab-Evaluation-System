@@ -1,0 +1,55 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_ID: 1
+  student_email: MyText
+  class_num: 1
+  survey_ID: 1
+  status: false
+  Q1: MyText
+  Q2: MyText
+  Q3: MyText
+  Q4: MyText
+  Q5: MyText
+  Q6: MyText
+  Q7: MyText
+  Q8: MyText
+  Q9: MyText
+  Q10: MyText
+  Q11: MyText
+  Q12: MyText
+  Q13: MyText
+  Q14: MyText
+  Q15: MyText
+  Q16: MyText
+  Q17: MyText
+  Q18: MyText
+  Q19: MyText
+  Q20: MyText
+
+two:
+  student_ID: 1
+  student_email: MyText
+  class_num: 1
+  survey_ID: 1
+  status: false
+  Q1: MyText
+  Q2: MyText
+  Q3: MyText
+  Q4: MyText
+  Q5: MyText
+  Q6: MyText
+  Q7: MyText
+  Q8: MyText
+  Q9: MyText
+  Q10: MyText
+  Q11: MyText
+  Q12: MyText
+  Q13: MyText
+  Q14: MyText
+  Q15: MyText
+  Q16: MyText
+  Q17: MyText
+  Q18: MyText
+  Q19: MyText
+  Q20: MyText

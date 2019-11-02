@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  class_num: 1
+  user_ID: 1
+  enrolled: 1
+  completed: 1
+  subject: MyText
+  catalog: MyText
+  title: MyText
+  section: 1
+
+two:
+  class_num: 1
+  user_ID: 1
+  enrolled: 1
+  completed: 1
+  subject: MyText
+  catalog: MyText
+  title: MyText
+  section: 1
