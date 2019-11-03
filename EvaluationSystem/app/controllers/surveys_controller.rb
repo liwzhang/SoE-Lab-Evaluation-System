@@ -5,6 +5,11 @@ class SurveysController < ApplicationController
   # GET /surveys.json
   def index
     @surveys = Survey.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @surveys.to_csv }
+    end
   end
 
   # GET /surveys/1
