@@ -1,0 +1,4 @@
+Remember to change Gemfile version of ruby if you ran into problems
+Versions to keep track of
+2.5.1
+2.6.5
