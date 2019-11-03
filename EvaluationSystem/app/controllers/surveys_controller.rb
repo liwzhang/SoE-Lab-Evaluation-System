@@ -15,15 +15,23 @@ class SurveysController < ApplicationController
   # GET /surveys/1
   # GET /surveys/1.json
   def show
+
   end
 
   # GET /surveys/new
   def new
     @survey = Survey.new
+
+    respond_to do |format|
+      format.html
+    end
   end
 
   # GET /surveys/1/edit
   def edit
+    respond_to do |format|
+      format.html
+    end
   end
 
   # POST /surveys
