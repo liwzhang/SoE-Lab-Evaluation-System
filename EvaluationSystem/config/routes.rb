@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'professor#sections'
+  devise_for :users
   resources :questions
   resources :surveys
   resources :sections
