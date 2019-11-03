@@ -2,7 +2,7 @@
 
 class Abstractlexer{
     constructor(file){
-        this.file - file;
+        this.file = file;
         this.lineNum = 0;
         this.rowNum = 0;
     }
