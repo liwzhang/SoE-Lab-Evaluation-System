@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Class num:</strong>
+  <%= @section.class_num %>
+</p>
+
+<p>
+  <strong>User id:</strong>
+  <%= @section.user_ID %>
+</p>
+
+<p>
+  <strong>Enrolled:</strong>
+  <%= @section.enrolled %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @section.completed %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @section.subject %>
+</p>
+
+<p>
+  <strong>Catalog:</strong>
+  <%= @section.catalog %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @section.title %>
+</p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @section.section %>
+</p>
+
+<%= link_to 'Edit', edit_section_path(@section) %> |
+<%= link_to 'Back', sections_path %>
