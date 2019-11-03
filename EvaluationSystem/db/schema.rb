@@ -12,10 +12,11 @@
 
 ActiveRecord::Schema.define(version: 2019_11_03_220251) do
 
+
   create_table "questions", force: :cascade do |t|
     t.integer "question_ID"
     t.text "category"
-    t.text "type"
+    t.text "question_type"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
