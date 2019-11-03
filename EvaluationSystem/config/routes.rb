@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :uploader
   resources :questions
   resources :surveys
   resources :sections
