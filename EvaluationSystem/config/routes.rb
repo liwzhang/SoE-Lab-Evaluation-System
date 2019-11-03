@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'uploader/proUpload'
+  post 'uploader/proUpload', to: 'uploader#upload'
   resources :questions
   resources :surveys
   resources :sections

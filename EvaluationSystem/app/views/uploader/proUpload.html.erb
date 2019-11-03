@@ -1,0 +1,8 @@
+<h1>Uploader#proUpload</h1>
+<%= form_with(url: {action: :upload}, multipart: true) do %>
+  <%= file_field_tag 'file', accept: '.csv', :onchange=>"fileisValid(event);"  %>
+  <p></p>
+  <%= submit_tag("Submit") %>
+<% end %>
+ 
+<p>Find me in app/views/uploader/proUpload.html.erb</p>
