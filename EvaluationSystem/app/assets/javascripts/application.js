@@ -10,15 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-<<<<<<< HEAD
 // require jquery3
 // require jquery_ujs
 //= require rails-ujs
-=======
-//= require jquery3
-//= require jquery_ujs
-// require rails-ujs
->>>>>>> parent of a5e1d14... Revert "Prop upload"
 //= require activestorage
 //= require turbolinks
 //= require checker
