@@ -7,16 +7,6 @@ class Abstractlexer{
         this.rowNum = 0;
     }
 
-    get lineNumber()
-    {
-        return this.lineNum;
-    }
-
-    get rowNumber()
-    {
-        return this.lineNum;
-    }
-
     lex()
     {
         return 0;
