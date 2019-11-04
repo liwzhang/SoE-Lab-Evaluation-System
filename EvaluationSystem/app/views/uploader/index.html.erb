@@ -2,14 +2,19 @@
 <p>This is just to upload files</p>
 
 <%= form_with(url: '/uploader', method: 'post', multipart: true) do %>
+<div class = 'section'>
   <%= file_field_tag 'file', accept: '.csv', :onchange=>"fileisValid(event);"  %>
   <p></p>
+</div>
+<div class = 'section'>
   <p>Pick what type</p>
-  <%= radio_button_tag(:listc, "classes") %>
-  <%= label_tag(:of_classes, "classes") %>
-  <%= radio_button_tag(:listc, "roster") %>
-  <%= label_tag(:of_roster, "roster") %>
+  Classes <%= radio_button_tag(:listc, "classes") %>
+  Roster <%= radio_button_tag(:listc, "roster") %>
+  <p></p>
+  </div>
+  <div class = 'section'>
   <%= submit_tag("Submit") %>
+  </div>
 <% end %>
  
 <p>Find me in app/views/uploader/proUpload.html.erb</p>
