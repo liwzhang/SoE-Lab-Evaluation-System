@@ -26,7 +26,6 @@ class UploaderController < ApplicationController
           @section.catalog = row['Catalog']
           @section.title = row['Title']
           @section.enrolled = row['Enrollment after removal of drops']
-          @section.user_ID = 1
           if !Section.exists?(class_num: @section.class_num)
             if !@section.save
               puts 'error'
