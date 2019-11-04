@@ -5,9 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Class Num</th>
-      <th>User Id</th>
-      <th>Student Enrolled</th>
+      <th>Class num</th>
+      <th>Professor Email</th>
+      <th>Students Enrolled</th>
       <th>Evals Completed</th>
       <th>Subject</th>
       <th>Catalog</th>
@@ -21,7 +21,7 @@
     <% @sections.each do |section| %>
       <tr>
         <td><%= section.class_num %></td>
-        <td><%= section.user_ID %></td>
+        <td><%= section.professor_email %></td>
         <td><%= section.enrolled %></td>
         <td><%= section.completed %></td>
         <td><%= section.subject %></td>

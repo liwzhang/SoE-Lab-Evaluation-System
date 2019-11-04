@@ -14,7 +14,7 @@ class SectionsController < ApplicationController
   # GET /sections/1
   # GET /sections/1.json
   def show
-    
+
   end
 
   # GET /sections/new
@@ -74,6 +74,6 @@ class SectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
-      params.require(:section).permit(:class_num, :user_ID, :enrolled, :completed, :subject, :catalog, :title, :section)
+      params.require(:section).permit(:class_num, :professor_email, :enrolled, :completed, :subject, :catalog, :title, :section)
     end
 end
