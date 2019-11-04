@@ -29,6 +29,8 @@ class SurveysController < ApplicationController
 
   # GET /surveys/1/edit
   def edit
+    @questions = Question.all
+    @categories = ["Learning from Labs", "Lab Instructor", "Lab Space and Equipment", "Time Required to Complete Labs", "Lecture Section Instructor"]
     respond_to do |format|
       format.html
     end
@@ -55,7 +57,7 @@ class SurveysController < ApplicationController
   def update
     respond_to do |format|
       if @survey.update(survey_params)
-        format.html { redirect_to @survey, notice: 'Survey was successfully updated.' }
+        format.html { redirect_to @survey, notice: 'Survey was successfully submitted.' }
         format.json { render :show, status: :ok, location: @survey }
       else
         format.html { render :edit }
