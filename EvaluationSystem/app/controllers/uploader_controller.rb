@@ -8,11 +8,18 @@ class UploaderController < ApplicationController
   def create
     uploaded_file = params[:file]
     theFrom = params[:listc]
-    arr_of_arrs = CSV.parse(uploaded_file.read, headers: true)
+
     if theFrom == 'classes'
       
     elsif theFrom == 'roster'
-      puts arr_of_arrs[0]
+      CSV.parse(uploaded_file.read, headers: true) do |row|
+        @section = Section.new()
+        @section.class_num = row['Class Nbr']
+        @section.subject = row['Subject']
+        @section.catalog = row['Catalog']
+        @section.title = row['Title']
+        @section.enrolled = row['Enrollment after removal of drops']
+      end
     end
     redirect_to '/uploader/new'
     
