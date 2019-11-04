@@ -5,10 +5,9 @@
   <%= file_field_tag 'file', accept: '.csv', :onchange=>"fileisValid(event);"  %>
   <p></p>
   <p>Pick what type</p>
-  <%= radio_button_tag(:listc, "classes") %>
-  <%= label_tag(:of_classes, "classes") %>
-  <%= radio_button_tag(:listc, "roster") %>
-  <%= label_tag(:of_roster, "roster") %>
+  Classes <%= radio_button_tag(:listc, "classes") %>
+  Roster <%= radio_button_tag(:listc, "roster") %>
+  <p></p>
   <%= submit_tag("Submit") %>
 <% end %>
  
