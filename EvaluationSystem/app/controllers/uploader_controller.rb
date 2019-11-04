@@ -19,6 +19,10 @@ class UploaderController < ApplicationController
         @section.catalog = row['Catalog']
         @section.title = row['Title']
         @section.enrolled = row['Enrollment after removal of drops']
+        @section.user_ID = 1
+        if !@section.save
+          puts 'error'
+        end
       end
     end
     redirect_to '/uploader/new'
