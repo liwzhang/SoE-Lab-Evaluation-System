@@ -1,4 +1,4 @@
-<h1>Professor#sections</h1>
+<h1>Welcome <% if current_user %> <%= current_user.name %> <% end %></h1>
 
 <%- #logged in, session found -%>
 <% if current_user %>
