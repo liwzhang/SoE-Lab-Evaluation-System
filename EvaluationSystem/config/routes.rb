@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   devise_for :users
   
   #resourceful routes for models
+
+  resources :uploader
   resources :questions
   resources :surveys
   resources :sections
