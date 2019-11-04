@@ -1,3 +1,17 @@
 // Place all the styles related to the uploader controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+input[type = "radio"]{
+    margin: 0 10px 0 10px;
+}
+
+body{
+    text-align: center;
+}
+.section{
+    border-style: solid;
+    border: 3ptx;
+    background-color: rgb(214, 214, 214);
+    border-color: rgb(99, 103, 158);
+}
