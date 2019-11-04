@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   #resourceful routes for models
 
+  resources :evaluation
   resources :uploader
   resources :questions
   resources :surveys
