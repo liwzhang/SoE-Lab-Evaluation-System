@@ -26,9 +26,7 @@ class FileLexer extends Abstractlexer{
                 this.lineNum++;
                 return ','
             }
-            if character
-        
-        return "num"
+            
         return "string"
         }
     }
