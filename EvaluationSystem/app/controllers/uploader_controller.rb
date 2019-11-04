@@ -12,9 +12,9 @@ class UploaderController < ApplicationController
     uploaded_file = params[:file]
     theFrom = params[:listc]
 
-    if theFrom == 'classes'
+    if theFrom == 'roster'
       
-    elsif theFrom == 'roster'
+    elsif theFrom == 'classes'
       k = CSV.read(uploaded_file.path)[0]
       if !check_header(k)
         puts "Not Right"
