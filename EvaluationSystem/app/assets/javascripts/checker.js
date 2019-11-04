@@ -5,7 +5,7 @@ function fileisValid(event){
     var file = files[0];
     var reader = new FileReader();
     reader.onload = function(){
-        alert(reader.result)
+        //alert(reader.result)
     }
     reader.readAsBinaryString(file)
     return false
