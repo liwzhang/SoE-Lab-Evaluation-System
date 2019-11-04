@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_03_220251) do
-
+ActiveRecord::Schema.define(version: 2019_11_04_004234) do
 
   create_table "questions", force: :cascade do |t|
     t.integer "question_ID"
@@ -25,15 +24,15 @@ ActiveRecord::Schema.define(version: 2019_11_03_220251) do
 
   create_table "sections", force: :cascade do |t|
     t.integer "class_num"
-    t.integer "user_ID"
     t.integer "enrolled"
-    t.integer "completed"
+    t.integer "completed", default: 0
     t.text "subject"
     t.text "catalog"
     t.text "title"
     t.integer "section"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "professor_email"
     t.index ["class_num"], name: "index_sections_on_class_num", unique: true
   end
 
@@ -77,6 +76,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_220251) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
+    t.text "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
