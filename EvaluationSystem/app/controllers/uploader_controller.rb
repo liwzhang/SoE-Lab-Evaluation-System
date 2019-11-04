@@ -1,10 +1,13 @@
 require 'csv'
 
 class UploaderController < ApplicationController
+
   def new
   end
+
   def index
   end
+
   def create
     uploaded_file = params[:file]
     theFrom = params[:listc]
@@ -35,14 +38,18 @@ class UploaderController < ApplicationController
     redirect_to '/uploader/new'
     
   end
+
   def extension_white_list
     %w(csv)
   end
+
   def show
   end
+
   def update
 
   end
+  
   def destroy
 
   end

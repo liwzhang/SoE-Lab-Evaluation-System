@@ -1,0 +1,57 @@
+<%= form_with(model: survey, local: true) do |form| %>
+  <% if survey.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
+
+      <ul>
+      <% survey.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table class="survey">
+  <% @categories.each do |category| %>
+    <tr><td><h3><%= category %></h3><td></tr>
+      
+        <% @questions.each do |question| %>
+
+          <% if question.category == category %>
+            <tr>
+              <div class="field">
+                <td><%= question.question_ID %>. <%= question.content %></td>
+
+                <% if question.question_type == "Numeric (1-5)" %>
+                  <td>strongly disagree <%= form.radio_button(:"Q#{question.question_ID}", "1") %>
+                  <%= form.radio_button(:"Q#{question.question_ID}", "2") %>
+                  <%= form.radio_button(:"Q#{question.question_ID}", "3") %>
+                  <%= form.radio_button(:"Q#{question.question_ID}", "4") %>
+                  <%= form.radio_button(:"Q#{question.question_ID}", "5") %> strongly agree</td>
+
+                <% elsif question.question_type == "Numeric (hourly)" %>
+                  <td>&lt;2 <%= form.radio_button(:"Q#{question.question_ID}", "<2") %>
+                  2 <%= form.radio_button(:"Q#{question.question_ID}", "2") %>
+                  2.5 <%= form.radio_button(:"Q#{question.question_ID}", "2.5") %>
+                  3 <%= form.radio_button(:"Q#{question.question_ID}", "3") %>
+                  &gt;3 <%= form.radio_button(:"Q#{question.question_ID}", ">3") %></td>
+
+                <% else %>
+                  <td><%= form.text_area :"Q#{question.question_ID}" %></td>
+
+                <% end %>
+              </div>
+            </tr>
+
+          <% end %>
+
+        <% end %>
+      
+  <% end %>
+</table>
+
+  <div class="actions">
+    <%= form.submit "Submit" %>
+  </div>
+
+<% end %>
