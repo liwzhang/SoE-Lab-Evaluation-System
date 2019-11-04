@@ -7,8 +7,13 @@ class UploaderController < ApplicationController
   end
   def create
     uploaded_file = params[:file]
-    arr_of_arrs = CSV.parse(uploaded_file.read)
-    puts arr_of_arrs
+    theFrom = params[:listc]
+    arr_of_arrs = CSV.parse(uploaded_file.read, headers: true)
+    if theFrom == 'classes'
+      
+    elsif theFrom == 'roster'
+      puts arr_of_arrs[0]
+    end
     redirect_to '/uploader/new'
     
   end
