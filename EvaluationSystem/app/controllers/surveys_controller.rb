@@ -61,6 +61,11 @@ class SurveysController < ApplicationController
       if @survey.update(survey_params)
         format.html { redirect_to @survey, notice: 'Survey was successfully submitted.' }
         format.json { render :show, status: :ok, location: @survey }
+        
+        # Update 'completed' attribute to true
+        submission = Survey.where(survey_ID: params[:survey][:survey_ID])
+        submission.update(status: true)
+        
       else
         format.html { render :edit }
         format.json { render json: @survey.errors, status: :unprocessable_entity }
