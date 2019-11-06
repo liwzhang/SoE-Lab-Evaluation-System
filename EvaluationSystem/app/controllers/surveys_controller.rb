@@ -21,19 +21,13 @@ class SurveysController < ApplicationController
   # GET /surveys/new
   def new
     @survey = Survey.new
-
-    respond_to do |format|
-      format.html
-    end
   end
 
   # GET /surveys/1/edit
   def edit
     @questions = Question.all
     @categories = ["Learning from Labs", "Lab Instructor", "Lab Space and Equipment", "Time Required to Complete Labs", "Lecture Section Instructor"]
-    respond_to do |format|
-      format.html
-    end
+
   end
 
   # POST /surveys
@@ -63,7 +57,7 @@ class SurveysController < ApplicationController
         format.json { render :show, status: :ok, location: @survey }
         
         # Update 'completed' attribute to true
-        submission = Survey.where(survey_ID: params[:survey][:survey_ID])
+        submission = Survey.find(params[:id])
         submission.update(status: true)
         
       else
