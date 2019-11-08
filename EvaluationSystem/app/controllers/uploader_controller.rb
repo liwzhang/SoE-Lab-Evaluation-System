@@ -82,7 +82,11 @@ class UploaderController < ApplicationController
   end
 
   def insert_students(x)
-    surveycount = Survey.count + 1
+    y = Survey.maximum('survey_ID')
+    surveycount = 0
+    if !y.nil?()
+      surveycount = y + 1
+    end
     CSV.foreach(x, headers: true) do |row|
       @survey = Survey.new()
       @survey.student_ID = row['Student ID']
