@@ -26,7 +26,7 @@ class UploaderController < ApplicationController
         insert_sections(uploaded_file.path)
       end
     end
-    redirect_to '/uploader/new'
+    redirect_to '/uploader'
     
   end
 
@@ -77,6 +77,8 @@ class UploaderController < ApplicationController
         if !@section.save
           puts 'error'
         end
+      else
+        flash[:alert] = "Some values were ommited"
       end
     end
   end
@@ -87,6 +89,7 @@ class UploaderController < ApplicationController
     if !y.nil?()
       surveycount = y + 1
     end
+    #remeber to lowercase emails
     CSV.foreach(x, headers: true) do |row|
       @survey = Survey.new()
       @survey.student_ID = row['Student ID']
