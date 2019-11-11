@@ -1,0 +1,35 @@
+<h1>Admin Home</h1>
+
+<%- #logged in, session found -%>
+<% if current_user %>
+
+  <%- #current_user has admin rights %>
+  <% if current_user.admin %>
+
+    <%= link_to 'Sign Out', destroy_user_session_path,
+    method: :delete %>
+
+    <%= link_to 'TA Evaluation Questions', questions_path %>
+
+    <%= link_to 'Lab Sections Information', sections_path %>
+
+    <%= link_to 'Update Roster', new_uploader_path %>
+
+    <%= link_to 'Set Email Reminder Dates', 'email' %>
+
+  <%- #current_user is not an admin, get em outta here %>
+  <% else %>
+
+    <h3> Error, you do not have access to this page (Requires Admin Permissions)</h3>
+    <%= link_to 'Return Home', root_url %>
+
+  <% end %>
+
+<%- #not logged in, no session found %>
+<% else %>
+
+  <%= link_to 'Sign Up', new_user_registration_path %>
+
+  <%= link_to 'Sign In', new_user_session_path %>
+
+<% end %>
