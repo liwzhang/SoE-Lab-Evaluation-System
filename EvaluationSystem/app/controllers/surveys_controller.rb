@@ -58,6 +58,8 @@ class SurveysController < ApplicationController
   # PATCH/PUT /surveys/1
   # PATCH/PUT /surveys/1.json
   def update
+    @questions = Question.all
+    @categories = ["Learning from Labs", "Lab Instructor", "Lab Space and Equipment", "Time Required to Complete Labs", "Lecture Section Instructor"]
     respond_to do |format|
       if @survey.update(survey_params)
         format.html { redirect_to @survey, notice: 'Survey was successfully submitted.' }
