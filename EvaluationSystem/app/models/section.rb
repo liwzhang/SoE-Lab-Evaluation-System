@@ -1,3 +1,3 @@
 class Section < ApplicationRecord
-  has_many :surveys, dependent: :destroy
+  #has_many :surveys, dependent: :destroy
 end
