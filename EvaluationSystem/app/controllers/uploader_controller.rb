@@ -1,6 +1,7 @@
 require 'csv'
 
 class UploaderController < ApplicationController
+  @@uploaded_text = "File has bee uploaded"
 
   def new
   end
@@ -89,9 +90,10 @@ class UploaderController < ApplicationController
           puts 'error'
         end
       else
-        flash[:alert] = "Some values were ommited"
+        flash[:values_ommited] = "Some values were ommited"
       end
     end
+    flash[:just_uploaded] = @@uploaded_text
   end
 
   def insert_professors(x)
@@ -126,7 +128,10 @@ class UploaderController < ApplicationController
         else
           surveycount = surveycount + 1
         end
+      else
+        flash[:values_ommited] = "Some values were ommited"
       end
     end
+    flash[:just_uploaded] = @@uploaded_text
   end
 end

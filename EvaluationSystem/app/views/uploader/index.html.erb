@@ -1,10 +1,15 @@
-<h1>Your page has been uploaded</h1>
+<% if flash[:just_uploaded] %>
+    <h1>Your page has been uploaded</h1>
+<%else %>
+    <h1>This is where to upload your Roster or Classes</h1>
+<%end %>
+
 <p>Nothing to see here.</p>
 
-<%= link_to "Upload more", "/uploader/new" %><p></p>
+<%= link_to "Upload", "/uploader/new" %><p></p>
 <%= link_to "See sections", "/sections" %><p></p>
 <%= link_to "See Surveys", "/surveys" %><p></p>
 
-<% if flash[:alert]%>
-    <p><%= flash[:alert]%></p>
+<% if flash[:values_ommited]%>
+    <p><%= flash[:values_ommited]%></p>
 <% end %>
