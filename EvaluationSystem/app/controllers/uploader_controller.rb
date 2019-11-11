@@ -16,6 +16,9 @@ class UploaderController < ApplicationController
       if !has_header_survey(k)
         puts "Not Right"
       else
+        if has_header_professor(k)
+          insert_professors(uploaded_file.path)
+        end
         insert_students(uploaded_file.path)
       end
 
@@ -46,6 +49,14 @@ class UploaderController < ApplicationController
   end
 
   private
+  def has_header_professor(x)
+    t = false
+    if x.include? 'Instructor Email' and 'Class Nbr'
+      t = true
+    end
+    t
+  end
+
   def has_header_sections(x)
     t = false
     if x.include? 'Class Nbr' and x.include? 'Subject' and 
@@ -79,6 +90,18 @@ class UploaderController < ApplicationController
         end
       else
         flash[:alert] = "Some values were ommited"
+      end
+    end
+  end
+
+  def insert_professors(x)
+    CSV.foreach(x, headers: true) do |row|
+      @section = Section.find_by(class_num: row['Class Nbr'])
+      if !row['Instructor Email'].nil?
+        @section.professor_email = row['Instructor Email'].downcase
+        if !@section.save
+          puts @section.errors.full_messages
+        end
       end
     end
   end
