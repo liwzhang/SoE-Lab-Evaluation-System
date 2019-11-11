@@ -3,7 +3,7 @@
 
 <%= form_with(url: '/uploader', method: 'post', multipart: true) do %>
 <div class = 'section'>
-  <%= file_field_tag 'file', accept: '.csv', :onchange=>"fileisValid(event);"  %>
+  <%= file_field_tag 'file', accept: '.csv'  %>
 </div>
 <div class = 'section'>
   <p>Pick what type</p>
