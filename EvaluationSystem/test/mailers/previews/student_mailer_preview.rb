@@ -6,4 +6,10 @@ class StudentMailerPreview < ActionMailer::Preview
         StudentMailer.welcome_email(user)
     end
 
+    def eval_email
+        survey = Survey.last
+        section = Section.find_by(class_num: survey.class_num)
+        StudentMailer.eval_email(survey, section)
+    end
+
 end
