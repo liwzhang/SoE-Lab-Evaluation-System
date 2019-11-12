@@ -15,8 +15,9 @@ class SurveysController < ApplicationController
   # GET /surveys/1
   # GET /surveys/1.json
   def show
-    @survey = Survey.where(survey_ID: params[:id])
+    @survey = Survey.find_by(survey_ID: params[:id])
     respond_to do |format|
+      format.html
       format.csv { send_data @survey.to_csv }
     end
   end
