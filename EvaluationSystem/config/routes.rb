@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  get 'admin/home'
+  get 'admin/sections'
+  get 'admin/email'
+  get 'admin/professors'
+  get 'admin/questions'
   #setting app root dir
   root to: 'professor#sections'
-  
+
   #user login resources
   devise_for :users
-  
+
   #resourceful routes for models
 
   resources :evaluation
