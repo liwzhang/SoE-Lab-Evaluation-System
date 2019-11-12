@@ -1,5 +1,6 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
+  before_action :downcase_email, only: [:show, :edit, :update, :destroy]
 
   # GET /sections
   # GET /sections.json
@@ -70,6 +71,10 @@ class SectionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_section
       @section = Section.find(params[:id])
+    end
+
+    def downcase_email
+      @section.professor_email = @section.professor_email.downcase!
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
