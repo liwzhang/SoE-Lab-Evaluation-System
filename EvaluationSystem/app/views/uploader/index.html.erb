@@ -1,19 +1,10 @@
-<h1>Uploader</h1>
-<p>This is just to upload files</p>
+<h1>Your page has been uploaded</h1>
+<p>Nothing to see here.</p>
 
-<%= form_with(url: '/uploader', method: 'post', multipart: true) do %>
-<div class = 'section'>
-  <%= file_field_tag 'file', accept: '.csv', :onchange=>"fileisValid(event);"  %>
-</div>
-<div class = 'section'>
-  <p>Pick what type</p>
-  Classes <%= radio_button_tag(:listc, "classes") %>
-  Roster <%= radio_button_tag(:listc, "roster") %>
-  <p></p>
-  </div>
-  <div class = 'section'>
-  <%= submit_tag("Submit") %>
-  </div>
+<%= link_to "Upload more", "/uploader/new" %><p></p>
+<%= link_to "See sections", "/sections" %><p></p>
+<%= link_to "See Surveys", "/surveys" %><p></p>
+
+<% if flash[:alert]%>
+    <p><%= flash[:alert]%></p>
 <% end %>
- 
-<p>Find me in app/views/uploader/proUpload.html.erb</p>
