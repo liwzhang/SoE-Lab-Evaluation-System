@@ -2,16 +2,15 @@
 <p>This is just to upload files</p>
 
 <%= form_with(url: '/uploader', method: 'post', multipart: true) do %>
-<div class = 'section'>
+<div class = 'upload-section-1'>
   <%= file_field_tag 'file', accept: '.csv'  %>
 </div>
-<div class = 'section'>
-  <p>Pick what type</p>
+<div class = 'upload-section-2'>
+  Pick what type<br>
   Classes <%= radio_button_tag(:listc, "classes") %>
   Roster <%= radio_button_tag(:listc, "roster") %>
-  <p></p>
   </div>
-  <div class = 'section'>
+  <div class = 'upload-submit-section'>
   <%= submit_tag("Submit") %>
   </div>
 <% end %>
