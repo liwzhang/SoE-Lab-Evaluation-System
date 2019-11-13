@@ -6,11 +6,40 @@ input[type="radio"] {
   margin: 0 10px 0 10px;
 }
 
-.section {
+div.upload-section-1{
   text-align: center;
   border-style: solid;
   border: 3ptx;
+  width: 200px;
+  height: 50px;
+  padding: 10px;
   background-color: rgb(214, 214, 214);
   border-color: rgb(181, 0, 67);
-  margin-bottom: 20ptx;
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+div.upload-section-2 {
+  text-align: center;
+  border-style: solid;
+  border: 3ptx;
+  width: 300px;
+  height: 50px;
+  padding: 5px;
+  background-color: rgb(214, 214, 214);
+  border-color: rgb(181, 0, 67);
+  margin: 10px;
+  box-sizing: border-box;
+}
+div.upload-submit-section {
+  text-align: center;
+  border-style: solid;
+  border: 3ptx;
+  width: 300px;
+  height: 100px;
+  padding: 30px;
+  background-color: rgb(214, 214, 214);
+  border-color: rgb(181, 0, 67);
+  margin: 10px;
+  box-sizing: border-box;
 }
