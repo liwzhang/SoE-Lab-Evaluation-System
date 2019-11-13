@@ -1,18 +1,21 @@
+<div class= uploader-title>
 <h1>Uploader</h1>
 <p>This is just to upload files</p>
-
+</div>
+<div class= uploader>
 <%= form_with(url: '/uploader', method: 'post', multipart: true) do %>
-<div class = 'upload-section-1'>
+<div class= upload-form>
+<div class = 'upload-section'>
   <%= file_field_tag 'file', accept: '.csv'  %>
 </div>
-<div class = 'upload-section-2'>
+<div class = 'upload-section'>
   Pick what type<br>
   Classes <%= radio_button_tag(:listc, "classes") %>
   Roster <%= radio_button_tag(:listc, "roster") %>
   </div>
-  <div class = 'upload-submit-section'>
+  <div class = 'upload-section'>
   <%= submit_tag("Submit") %>
   </div>
+</div>
 <% end %>
- 
-<p>Find me in app/views/uploader/proUpload.html.erb</p>
+</div>
