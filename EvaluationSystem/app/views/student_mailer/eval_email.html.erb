@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+        Using an online survey, Santa Clara University is seeking your feedback regarding one of the labs in which you are registered, <%= @section.title %>, <%= @section.subject %><%= @section.catalog %>. Your feedback will help the instructor understand which areas of the lab could be changed to improve the students' educational experience. Please follow the link below to open the survey:     <%= link_to 'Respond to your survey', edit_survey_url(@survey) %>
+</p>
+    <p>
+      THE SURVEY PERIOD ENDS [insert date] at midnight. Once a survey has been submitted, it cannot be accessed again. If you do NOT complete a survey for one or more of your lab, your ability to view current term grades WILL BE DELAYED by a week. Your response to the survey is completely anonymous and cannot be traced to you. A summary of results of surveys of all classes will be available on SCU's website after grades have been submitted.
+    </p>
+    <p>
+      ---------------------------------------------------
+    </p>
+    <p>
+      Note: Please do not respond to this email; it has been created automatically. If you have any questions, please contact evalmgr@scu.edu or call 554-4006. Thank you.
+    </p>
+  </body>
+</html>

@@ -7,4 +7,8 @@ class ProfessorController < ApplicationController
     end
   end
 
+  def send_mail
+    StudentMailer.eval_reminder.deliver_now
+  end
+  
 end
