@@ -10,7 +10,6 @@ class StudentMailer < ApplicationMailer
     def eval_email(survey, section)
         @survey = survey
         @section = section
-        #emails = Survey.pluck(:student_email)
         mail(to: @survey.student_email, subject: "Lab Evaluation for #{@section.title}, #{@section.subject} #{@section.catalog}")
     end
 
