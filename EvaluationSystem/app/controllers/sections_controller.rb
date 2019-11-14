@@ -15,7 +15,10 @@ class SectionsController < ApplicationController
   # GET /sections/1
   # GET /sections/1.json
   def show
-
+    #respond_to do |format|
+    #  format.html
+    #  format.csv { send_data @section.to_csv }
+    #end
   end
 
   # GET /sections/new
@@ -81,4 +84,5 @@ class SectionsController < ApplicationController
     def section_params
       params.require(:section).permit(:class_num, :professor_email, :enrolled, :completed, :subject, :catalog, :title, :section)
     end
+    
 end

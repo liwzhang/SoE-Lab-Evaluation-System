@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EvaluationSystem</title>
+    <title>Lab Evaluation System</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,21 @@
   </head>
 
   <body>
+    <div id = "header">
+      <a href = '/'>
+        <%= image_tag 'SCUSoELogo.png', id: 'logo' %>
+      </a>
+      <div id = "menubar">
+        <h1>Welcome to SoE Lab Evaluation System<% if current_user %>, Professor <%= current_user.name %> <% end %></h1>
+        <% if current_user %>
+          <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'regButton' %>
+        <% else %>
+          <%= button_to 'Sign Up', new_user_registration_path, method: :get, class: 'regButton' %>
+
+          <%= button_to 'Sign In', new_user_session_path, method: :get, class: 'regButton' %>
+        <% end %>
+      </div>
+    </div>
     <%= render 'layouts/alerts' %>
     <%= yield %>
   </body>
