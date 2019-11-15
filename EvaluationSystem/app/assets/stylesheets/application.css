@@ -60,3 +60,8 @@ table.survey {
 #loginForm {
   text-align: center;
 }
+
+#instructions {
+  text-align: center;
+  margin-top: 5%;
+}
