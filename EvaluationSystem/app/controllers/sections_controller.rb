@@ -77,7 +77,9 @@ class SectionsController < ApplicationController
     end
 
     def downcase_email
-      @section.professor_email = @section.professor_email.downcase!
+      if !@section.professor_email.nil?
+        @section.professor_email = @section.professor_email.downcase!
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
