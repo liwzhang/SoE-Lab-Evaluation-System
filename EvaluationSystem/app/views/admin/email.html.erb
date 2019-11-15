@@ -1,3 +1,8 @@
 <h1>Email Students</h1>
-
-<%= button_to "Email Students", email_students_path %>
+<div>
+<%= form_with(url: "/email_students", method: "post") do %>
+    <p>Select date and time: </p>
+    <%= datetime_local_field(:user, :send_date) %>
+    <%= submit_tag("Submit") %>
+<% end %>
+</div>

@@ -3,6 +3,7 @@ class AdminController < ApplicationController
   end
 
   def email_students
+    date = params[:send_date]
     @emails = Survey.pluck(:student_email)
     @surveys = Survey.where.not(student_email: nil)
     @surveys.each do |survey|
