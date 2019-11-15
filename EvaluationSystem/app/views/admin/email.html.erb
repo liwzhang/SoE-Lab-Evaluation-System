@@ -2,6 +2,8 @@
 
 <% if(current_user && current_user.admin)%>
 
+  <%= button_to "Email Students", email_students_path %>
+
   <%= link_to 'Return to Admin Home', controller: 'admin', action: 'home' %>
 
 <% else %>

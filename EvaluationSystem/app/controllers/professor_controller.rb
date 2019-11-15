@@ -16,4 +16,8 @@ before_action :redirect_after_sign_in
     end
   end
 
+  def send_mail
+    StudentMailer.eval_reminder.deliver_now
+  end
+
 end

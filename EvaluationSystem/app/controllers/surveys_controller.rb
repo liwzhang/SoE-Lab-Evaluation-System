@@ -15,7 +15,7 @@ class SurveysController < ApplicationController
   # GET /surveys/1
   # GET /surveys/1.json
   def show
-    @survey = Survey.where(survey_ID: params[:id])
+    @survey = Survey.find_by(survey_ID: params[:id])
     respond_to do |format|
       format.html
       format.csv { send_data @survey.to_csv }
@@ -25,19 +25,13 @@ class SurveysController < ApplicationController
   # GET /surveys/new
   def new
     @survey = Survey.new
-
-    respond_to do |format|
-      format.html
-    end
   end
 
   # GET /surveys/1/edit
   def edit
     @questions = Question.all
     @categories = ["Learning from Labs", "Lab Instructor", "Lab Space and Equipment", "Time Required to Complete Labs", "Lecture Section Instructor"]
-    respond_to do |format|
-      format.html
-    end
+
   end
 
   # POST /surveys
@@ -65,6 +59,11 @@ class SurveysController < ApplicationController
       if @survey.update(survey_params)
         format.html { redirect_to @survey, notice: 'Survey was successfully submitted.' }
         format.json { render :show, status: :ok, location: @survey }
+        
+        # Update 'completed' attribute to true
+        submission = Survey.find(params[:id])
+        submission.update(status: true)
+        
       else
         format.html { render :edit }
         format.json { render json: @survey.errors, status: :unprocessable_entity }
