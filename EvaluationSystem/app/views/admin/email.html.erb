@@ -1,21 +1,22 @@
-<h1>Email Students</h1>
-
 <% if(current_user && current_user.admin)%>
-    <div>
-        <%= form_with(url: "/email_students", method: "post") do %>
-            <p>Select date and time: </p>
-            <%= datetime_local_field(:user, :send_date) %>
-            <%= submit_tag("Submit") %>
-        <% end %>
-    </div>
 
-    <%= button_to "Email Students", email_students_path %>
+    <h1>Email Students</h1>
+    <p>Here you can schedule emails to be sent to all lab students.</p>
+        <div>
+            <%= form_with(url: "/email_students", method: "post") do %>
+                <p>Select date and time: <%= datetime_local_field(:user, :send_date) %></p>
+                <%= submit_tag("Submit") %>
+            <% end %>
+            
+        </div>
 
-    <%= link_to 'Return to Admin Home', controller: 'admin', action: 'home' %>
+        <%= button_to "Email Students", email_students_path %>
+
+        <%= link_to 'Back', controller: 'admin', action: 'home' %>
 
 <% else %>
 
-    <h3> Error, you do not have access to this page (Requires Admin Permissions)</h3>
-    <%= link_to 'Return to My sections', root_url %>
+    <h3>Error: You do not have access to this page.</h3>
+    <%= link_to 'Back', root_url %>
 
 <% end %>

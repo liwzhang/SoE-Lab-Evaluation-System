@@ -1,1 +1,10 @@
-<h1>Success!</h1>
+<% if(current_user && current_user.admin)%>
+
+    <h1>Success!</h1>
+
+<% else %>
+
+    <h3>Error: You do not have access to this page. </h3>
+    <%= link_to 'Back', root_url %>
+
+<% end %>

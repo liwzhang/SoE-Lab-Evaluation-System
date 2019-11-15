@@ -1,10 +1,15 @@
-<h1>Editing Question</h1>
-
-<%= render 'form', question: @question %>
-
-<%= link_to 'Show', @question %> |
-<%= link_to 'Back', questions_path %>
-
 <% if(current_user && current_user.admin)%>
-  <%= link_to 'Return to Admin Home', controller: 'admin', action: 'home' %>
+
+  <h1>Editing Question</h1>
+
+  <%= render 'form', question: @question %>
+
+  <%= link_to 'Show', @question %> |
+  <%= link_to 'Back', questions_path %>
+
+<% else %>
+
+    <h3>Error: You do not have access to this page.</h3>
+    <%= link_to 'Back', root_url %>
+
 <% end %>
