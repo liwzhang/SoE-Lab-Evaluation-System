@@ -1,21 +1,28 @@
-<h1>Uploader</h1>
-<p>This is just to upload files</p>
+<% if(current_user && current_user.admin)%>
 
-<%= form_with(url: '/uploader', method: 'post', multipart: true) do %>
-<div class = 'section'>
-  <%= file_field_tag 'file', accept: '.csv'  %>
-</div>
-<div class = 'section'>
-  <p>Pick what type</p>
-  Classes <%= radio_button_tag(:listc, "classes") %>
-  Roster <%= radio_button_tag(:listc, "roster") %>
-  <p></p>
+  <h1>Uploader</h1>
+  <p>This is just to upload files</p>
+
+  <%= form_with(url: '/uploader', method: 'post', multipart: true) do %>
+  <div class = 'section'>
+    <%= file_field_tag 'file', accept: '.csv'  %>
   </div>
   <div class = 'section'>
-  <%= submit_tag("Submit") %>
-  </div>
-<% end %>
+    <p>Pick what type</p>
+    Classes <%= radio_button_tag(:listc, "classes") %>
+    Roster <%= radio_button_tag(:listc, "roster") %>
+    <p></p>
+    </div>
+    <div class = 'section'>
+    <%= submit_tag("Submit") %>
+    </div>
+  <% end %>
 
-<% if(current_user && current_user.admin)%>
-  <%= link_to 'Return to Admin Home', controller: 'admin', action: 'home' %>
+  <%= link_to 'Back', controller: 'admin', action: 'home' %>
+
+<% else %>
+
+    <h3>Error: You do not have access to this page.</h3>
+    <%= link_to 'Back', root_url %>
+
 <% end %>

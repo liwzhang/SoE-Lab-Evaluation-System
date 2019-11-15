@@ -1,5 +1,13 @@
-<h1>New Section</h1>
+<% if(current_user && current_user.admin)%>
+    <h1>New Section</h1>
 
-<%= render 'form', section: @section %>
+    <%= render 'form', section: @section %>
 
-<%= link_to 'Back', sections_path %>
+    <%= link_to 'Back', sections_path %>
+
+<% else %>
+
+    <h3>Error: You do not have access to this page.</h3>
+    <%= link_to 'Back', root_url %>
+
+<% end %>
