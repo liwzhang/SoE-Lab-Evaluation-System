@@ -1,10 +1,5 @@
-<h1>Welcome Professor <% if current_user %> <%= current_user.name %> <% end %></h1>
-
 <%- #logged in, session found -%>
 <% if current_user %>
-
-  <%= link_to 'Sign Out', destroy_user_session_path,
-    method: :delete %>
 
   <h3>My Sections</h3>
 
@@ -17,6 +12,7 @@
         <th>Title</th>
         <th>Section</th>
         <th>Status</th>
+        <th>Export</th>
       </tr>
     </thead>
 
@@ -29,6 +25,8 @@
           <td><%= section.title %></td>
           <td><%= section.section %></td>
           <td><%= section.completed %>/<%= section.enrolled%> </td>
+          <td><% if(section.completed > 0) %> <%= link_to 'Export', section, format: :csv %>
+              <% else %>Export<% end %></td>
         </tr>
       <% end %>
     </tbody>
@@ -37,8 +35,9 @@
 <%- #not logged in, no session found %>
 <% else %>
 
-  <%= link_to 'Sign Up', new_user_registration_path %>
-
-  <%= link_to 'Sign In', new_user_session_path %>
+<h2 id = 'instructions'>Please sign in to see your sections.<br><br>
+    If you do not yet have an account, then please sign-up.<br><br>
+    Make sure to use your '@scu.edu' email in the "Email" Field.<br><br>
+    Admin, you know what to do ;*</h2>
 
 <% end %>
