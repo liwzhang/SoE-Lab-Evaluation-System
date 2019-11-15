@@ -39,3 +39,7 @@
 <br>
 
 <%= link_to 'New Section', new_section_path %>
+
+<% if(current_user && current_user.admin)%>
+  <%= link_to 'Return to Admin Home', controller: 'admin', action: 'home' %>
+<% end %>
