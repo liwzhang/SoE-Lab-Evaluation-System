@@ -9,7 +9,7 @@ class Section < ApplicationRecord
         CSV.generate(headers: true) do |csv|
             csv << attributes
 
-            all.each do |survey|
+            @relevantSurveys.all.each do |survey|
                 csv << survey.attributes.values_at(*attributes)
             end
         end
