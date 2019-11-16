@@ -25,7 +25,7 @@
           <td><%= section.title %></td>
           <td><%= section.section %></td>
           <td><%= section.completed %>/<%= section.enrolled%> </td>
-          <td><% if(section.completed > 0) %> <%= link_to 'Export', section, format: :csv %>
+          <td><% if(!section.completed.nil? and section.completed >= 0) %> <%= link_to 'Export', section, format: :csv %>
               <% else %>Export<% end %></td>
         </tr>
       <% end %>
