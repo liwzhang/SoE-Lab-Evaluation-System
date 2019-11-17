@@ -5,17 +5,23 @@
 <div class= uploader>
 <%= form_with(url: '/uploader', method: 'post', multipart: true) do %>
 <div class= upload-form>
-<div class = 'upload-section'>
-  <%= file_field_tag 'file', accept: '.csv'  %>
-</div>
-<div class = 'upload-section'>
-  Pick what type<br>
-  Classes <%= radio_button_tag(:listc, "classes") %>
-  Roster <%= radio_button_tag(:listc, "roster") %>
-  </div>
   <div class = 'upload-section'>
-  <%= submit_tag("Submit") %>
+    <div class = 'section'>
+      <%= file_field_tag 'file', accept: '.csv'  %>
+    </div>
+    <div class = 'upload-section'>
+      Pick what type<br>
+      Classes <%= radio_button_tag(:listc, "classes") %>
+      Roster <%= radio_button_tag(:listc, "roster") %>
+     </div>
+     <div class = 'upload-section'>
+       <%= submit_tag("Submit") %>
+      </div>
+    </div>
+  <% end %>
   </div>
 </div>
+
+<% if(current_user && current_user.admin)%>
+  <%= link_to 'Return to Admin Home', controller: 'admin', action: 'home' %>
 <% end %>
-</div>

@@ -15,7 +15,10 @@ class SectionsController < ApplicationController
   # GET /sections/1
   # GET /sections/1.json
   def show
-
+    #respond_to do |format|
+    #  format.html
+    #  format.csv { send_data @section.to_csv }
+    #end
   end
 
   # GET /sections/new
@@ -74,11 +77,14 @@ class SectionsController < ApplicationController
     end
 
     def downcase_email
-      @section.professor_email = @section.professor_email.downcase!
+      if !@section.professor_email.nil?
+        @section.professor_email = @section.professor_email.downcase!
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
       params.require(:section).permit(:class_num, :professor_email, :enrolled, :completed, :subject, :catalog, :title, :section)
     end
+    
 end
