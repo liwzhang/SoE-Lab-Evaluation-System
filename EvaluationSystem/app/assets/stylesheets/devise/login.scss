@@ -1,0 +1,55 @@
+div.line{
+    width: 50%;
+    align-self: inherit;
+    border-bottom: 1px solid rgb(0, 0,0);
+    margin-left: auto;
+    margin-right:auto;
+    margin-bottom: 10px;
+  }
+  
+  
+  div.devise-session{
+    font-family: "Helvetica";
+    text-align: center;
+    border: 1px solid rgb(49, 49, 49);
+    width: 40%;
+    height: 500px;
+    padding: 30px;
+    background-color: rgb(214, 214, 214);
+    border-radius: 25px;
+    margin: auto;
+    box-sizing: border-box;
+    box-shadow: 2px;
+  }
+  
+  div.devise-session h2{
+    font-size: 2.5em;
+  
+  }
+  
+  div.devise-session div.field label[for ='user_email']{
+    margin-right: 110px;
+  }
+  
+  div.devise-session div.field label[for ='user_password']{
+    margin-right: 80px;
+  }
+  
+  div.devise-session div.field label[for = 'user_remember_me'],input[type ='checkbox']{
+    vertical-align: middle;
+    display: inline-block;
+  }
+  
+  div.devise-session div.actions input[type = 'submit']{
+    background-color: rgb(181,0, 67);
+    border-radius: 10px;
+    padding: 5px 30px;
+    color: white;
+    text-align: center;
+    display: inline-block;
+  }
+  div.devise-session div.actions input[type = 'submit']:hover{
+    background-color: rgb(134, 134, 134);
+    color: black;
+    cursor: pointer;
+  }
