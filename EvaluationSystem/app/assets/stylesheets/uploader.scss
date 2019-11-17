@@ -11,26 +11,16 @@ div.uploader-title{
   margin: auto;
 }
 
-div.uploader{
+div.upload-form{
   font-family: "Helvetica";
   text-align: center;
-  border: 1px solid rgb(49, 49, 49);
-  width: 500px;
-  height: 300px;
-  padding: 20px;
+  border: 3px solid rgb(181,0, 67);
   border-radius: 25px;
-  margin: auto;
-  box-sizing: border-box;
-  box-shadow: 2px;
-}
-div.upload-form{
-  text-align: center;
-  border: 1px solid black;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 250px;
   padding: 5px;
   background-color: rgb(214, 214, 214);
-  margin: 10px auto;
+  margin: auto;
   box-sizing: border-box;
 }
 
@@ -38,6 +28,21 @@ div.upload-section{
   text-align: center;
   height: 50px;
   padding: 5px;
-  margin: 5px auto;
+  margin: 20px auto;
   text-align: center;
+}
+
+div.upload-section input[type ="submit"]{
+  background-color: rgb(181,0, 67);
+    border-radius: 10px;
+    padding: 5px 30px;
+    color: white;
+    text-align: center;
+    display: inline-block;
+}
+
+div.upload-section input[type ="submit"]:hover{
+  background-color: rgb(134, 134, 134);
+  color: black;
+  cursor: pointer;
 }
