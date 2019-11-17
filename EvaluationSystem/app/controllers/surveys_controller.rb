@@ -31,7 +31,7 @@ class SurveysController < ApplicationController
   def edit
     @questions = Question.all
     @categories = ["Learning from Labs", "Lab Instructor", "Lab Space and Equipment", "Time Required to Complete Labs", "Lecture Section Instructor"]
-
+    @qKey = params[:queryKey]
   end
 
   # POST /surveys
@@ -59,11 +59,11 @@ class SurveysController < ApplicationController
       if @survey.update(survey_params)
         format.html { redirect_to @survey, notice: 'Survey was successfully submitted.' }
         format.json { render :show, status: :ok, location: @survey }
-        
+
         # Update 'completed' attribute to true
         submission = Survey.find(params[:id])
         submission.update(status: true)
-        
+
       else
         format.html { render :edit }
         format.json { render json: @survey.errors, status: :unprocessable_entity }
