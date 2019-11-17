@@ -64,6 +64,11 @@ class SurveysController < ApplicationController
         submission = Survey.find(params[:id])
         submission.update(status: true)
 
+        # Increment 'completed' attribute for section
+        @section = Section.find_by(class_num: @survey.class_num)
+        @section.completed = @section.completed + 1
+
+
       else
         format.html { render :edit }
         format.json { render json: @survey.errors, status: :unprocessable_entity }
