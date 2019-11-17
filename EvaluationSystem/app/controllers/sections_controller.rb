@@ -9,16 +9,17 @@ class SectionsController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.csv { send_data @sections.to_csv }
     end
   end
 
   # GET /sections/1
   # GET /sections/1.json
   def show
-    #respond_to do |format|
-    #  format.html
-    #  format.csv { send_data @section.to_csv }
-    #end
+    respond_to do |format|
+      format.html
+      format.csv { send_data @section.to_csv }
+    end
   end
 
   # GET /sections/new
