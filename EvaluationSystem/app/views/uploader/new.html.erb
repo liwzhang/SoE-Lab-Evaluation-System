@@ -1,28 +1,24 @@
-<% if(current_user && current_user.admin)%>
-
-  <h1>Uploader</h1>
-  <p>This is just to upload files</p>
-
-  <%= form_with(url: '/uploader', method: 'post', multipart: true) do %>
-  <div class = 'section'>
-    <%= file_field_tag 'file', accept: '.csv'  %>
-  </div>
-  <div class = 'section'>
-    <p>Pick what type</p>
-    Classes <%= radio_button_tag(:listc, "classes") %>
-    Roster <%= radio_button_tag(:listc, "roster") %>
-    <p></p>
-    </div>
+<div class= uploader-title>
+<h1>Uploader</h1>
+<p>This is just to upload files</p>
+</div>
+<div class= uploader>
+<%= form_with(url: '/uploader', method: 'post', multipart: true) do %>
+<div class= upload-form>
+  <div class = 'upload-section'>
     <div class = 'section'>
-    <%= submit_tag("Submit") %>
+      <%= file_field_tag 'file', accept: '.csv'  %>
     </div>
-  <% end %>
-
-  <%= link_to 'Back', controller: 'admin', action: 'home' %>
-
-<% else %>
-
-    <h3>Error: You do not have access to this page.</h3>
-    <%= link_to 'Back', root_url %>
+    <div class = 'upload-section'>
+      Pick what type<br>
+      Classes <%= radio_button_tag(:listc, "classes") %>
+      Roster <%= radio_button_tag(:listc, "roster") %>
+     </div>
+     <div class = 'upload-section'>
+       <%= submit_tag("Submit") %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <% end %>
