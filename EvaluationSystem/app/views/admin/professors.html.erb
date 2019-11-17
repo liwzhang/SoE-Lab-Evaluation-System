@@ -1,2 +1,9 @@
+<% if(current_user && current_user.admin)%>
 <h1>Admin#professors</h1>
 <p>Find me in app/views/admin/professors.html.erb</p>
+<% else %>
+
+    <h3>Error: You do not have access to this page.</h3>
+    <%= link_to 'Back', root_url %>
+
+<% end %>

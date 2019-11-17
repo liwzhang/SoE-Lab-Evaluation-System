@@ -1,10 +1,7 @@
-<h1>Admin Home</h1>
+<%- #if current user is logged in, session found and has admin rights -%>
+<% if(current_user && current_user.admin)%>
 
-<%- #logged in, session found -%>
-<% if current_user %>
-
-  <%- #current_user has admin rights %>
-  <% if current_user.admin %>
+  <h1>Admin Home</h1>
 
     <%= link_to 'TA Evaluation Questions', questions_path, class: 'aHomeButton' %>
 
@@ -23,10 +20,3 @@
   <% end %>
 
 <%- #not logged in, no session found %>
-<% else %>
-
-  <%= link_to 'Sign Up', new_user_registration_path %>
-
-  <%= link_to 'Sign In', new_user_session_path %>
-
-<% end %>
