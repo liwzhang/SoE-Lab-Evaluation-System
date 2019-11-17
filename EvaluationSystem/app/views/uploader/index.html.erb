@@ -5,10 +5,7 @@
     <%= link_to "Upload more", "/uploader/new" %><p></p>
     <%= link_to "See sections", "/sections" %><p></p>
     <%= link_to "See Surveys", "/surveys" %><p></p>
-
-    <% if flash[:alert]%>
-        <p><%= flash[:alert]%></p>
-    <% end %>
+    <%= link_to 'Go Home', root_url %>
 
 <% else %>
 

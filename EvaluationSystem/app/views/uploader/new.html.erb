@@ -1,24 +1,29 @@
-<div class= uploader-title>
-<h1>Uploader</h1>
-<p>This is just to upload files</p>
-</div>
-<div class= uploader>
-<%= form_with(url: '/uploader', method: 'post', multipart: true) do %>
-<div class= upload-form>
-  <div class = 'upload-section'>
-    <div class = 'section'>
-      <%= file_field_tag 'file', accept: '.csv'  %>
-    </div>
-    <div class = 'upload-section'>
-      Pick what type<br>
-      Classes <%= radio_button_tag(:listc, "classes") %>
-      Roster <%= radio_button_tag(:listc, "roster") %>
-     </div>
-     <div class = 'upload-section'>
-       <%= submit_tag("Submit") %>
-      </div>
-    </div>
+<% if(current_user && current_user.admin)%>
+  <div class= uploader-title>
+    <h1>Uploader</h1>
+    <p>This is just to upload files</p>
   </div>
-</div>
-
+  <div class= uploader>
+    <%= form_with(url: '/uploader', method: 'post', multipart: true) do %>
+      <div class= upload-form>
+        <div class = 'upload-section'>
+          <div class = 'section'>
+            <%= file_field_tag 'file', accept: '.csv'  %>
+          </div>
+          <div class = 'upload-section'>
+            Pick what type<br>
+            Classes <%= radio_button_tag(:listc, "classes") %>
+            Roster <%= radio_button_tag(:listc, "roster") %>
+          </div>
+          <div class = 'upload-section'>
+            <%= submit_tag("Submit") %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+    <h3>Error: You do not have access to this page.</h3>
+    <%= link_to 'Back', root_url %>
 <% end %>
+
