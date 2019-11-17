@@ -3,15 +3,13 @@
     <h1>Email Students</h1>
     <p>Here you can schedule emails to be sent to all lab students.</p>
         <div>
-            <%= form_with(url: "/email_students", method: "post") do %>
-                <p>Select date and time: <%= datetime_local_field(:user, :send_date) %></p>
+            <%= simple_form_for :date, url: email_students_path do |f| %>
+                <%= f.input :send_email, collection: [["Now", 0], ["Tomorrow", 1], ["In 2 days", 2], ["Next week", 7]] %>
                 <%= submit_tag("Submit") %>
             <% end %>
             
         </div>
-
-        <%= button_to "Email Students", email_students_path %>
-
+        <br>
         <%= link_to 'Back', controller: 'admin', action: 'home' %>
 
 <% else %>
