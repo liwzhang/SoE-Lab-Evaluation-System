@@ -1,3 +1,5 @@
+# Subclass of ApplicationMailer responsible for housing different emails for our application
+
 class StudentMailer < ApplicationMailer
     default from: 'evalmgr@scu.edu'
 
@@ -7,14 +9,18 @@ class StudentMailer < ApplicationMailer
              subject: "Welcome #{@user.email}")
     end
 
+    # Sends the initial eval email
     def eval_email(survey, section)
         @survey = survey
         @section = section
         mail(to: @survey.student_email, subject: "Lab Evaluation for #{@section.title}, #{@section.subject} #{@section.catalog}")
     end
 
-    def eval_reminder
-        emails = Survey.pluck(:student_email)
-        mail(to: emails, subject: "Lab Evaluation Reminder for")
+    # Sends a reminder eval email
+    def eval_reminder(survey, section)
+        #emails = Survey.pluck(:student_email)
+        @survey = survey
+        @section = section
+        mail(to: @survey.student_email, subject: "Lab Evaluation Reminder for #{@section.title}, #{@section.subject} #{@section.catalog}")
     end
 end

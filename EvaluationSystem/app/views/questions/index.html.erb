@@ -1,42 +1,42 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Questions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Question Id</th>
-      <th>Category</th>
-      <th>Type</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @questions.each do |question| %>
-      <tr>
-        <td><%= question.question_ID %></td>
-        <td><%= question.category %></td>
-        <td><%= question.question_type %></td>
-        <td><%= question.content %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Question', new_question_path %>
-
 <% if(current_user && current_user.admin)%>
-  <%= link_to 'Return to Admin Home', controller: 'admin', action: 'home' %>
+  <p id="notice"><%= notice %></p>
 
-  <%# UNCOMMENT UPON DEPLOYMENT, LEAVE OPEN FOR TESTING else %>
-    <h3> Error, you do not have access to this page (Requires Admin Permissions)</h3>
-    <%= link_to 'Return to My sections', root_url %>
+  <h1>Questions</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Question Id</th>
+        <th>Category</th>
+        <th>Type</th>
+        <th>Content</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @questions.each do |question| %>
+        <tr>
+          <td><%= question.question_ID %></td>
+          <td><%= question.category %></td>
+          <td><%= question.question_type %></td>
+          <td><%= question.content %></td>
+          <td><%= link_to 'Show', question %></td>
+          <td><%= link_to 'Edit', edit_question_path(question) %></td>
+          <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Question', new_question_path %> | 
+  <%= link_to 'Back', controller: 'admin', action: 'home' %>
+
+<% else %>
+
+    <h3>Error: You do not have access to this page.</h3>
+    <%= link_to 'Back', root_url %>
 
 <% end %>
