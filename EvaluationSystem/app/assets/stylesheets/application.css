@@ -63,11 +63,11 @@ table.survey {
 }
 
 .aHomeButton {
-  background-color: #b50043;
+  background-color: #b50043 !important;
   text-align: center;
   border: .5px solid white;
   padding: 15px 25px;
-  color: white;
+  color: white !important;
   border-radius: 7px;
   float: left;
   margin-left: 12%;
@@ -75,7 +75,7 @@ table.survey {
 }
 
 .aHomeButton:hover {
-  background-color: #8c0034;
+  background-color: #9e7e8a !important;
 }
 
 #loginForm {
