@@ -1,4 +1,5 @@
 require 'csv'
+require 'securerandom'
 
 class UploaderController < ApplicationController
 
@@ -30,7 +31,7 @@ class UploaderController < ApplicationController
       end
     end
     redirect_to '/uploader'
-    
+
   end
 
   def extension_white_list
@@ -43,7 +44,7 @@ class UploaderController < ApplicationController
   def update
 
   end
-  
+
   def destroy
 
   end
@@ -59,7 +60,7 @@ class UploaderController < ApplicationController
 
   def has_header_sections(x)
     t = false
-    if x.include? 'Class Nbr' and x.include? 'Subject' and 
+    if x.include? 'Class Nbr' and x.include? 'Subject' and
         x.include? 'Catalog' and x.include? 'Title' and
         x.include? 'Enrollment after removal of drops'
       t = true
@@ -69,7 +70,7 @@ class UploaderController < ApplicationController
 
   def has_header_survey(x)
     t = false
-    if x.include? 'Student ID' and x.include? 'Class Nbr' and 
+    if x.include? 'Student ID' and x.include? 'Class Nbr' and
         x.include? 'Student Email'
       t = true
     end
@@ -120,6 +121,7 @@ class UploaderController < ApplicationController
       @survey.student_email =row['Student Email']
       @survey.survey_ID = surveycount
       @survey.status = 'false'
+      @survey.key = SecureRandom.alphanumeric
       if !Survey.exists?(class_num: @survey.class_num, student_ID: @survey.student_ID)
         if !@survey.save
           puts @survey.errors.full_messages
