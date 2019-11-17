@@ -1,10 +1,7 @@
-<h1>Admin Home</h1>
+<%- #if current user is logged in, session found and has admin rights -%>
+<% if(current_user && current_user.admin)%>
 
-<%- #logged in, session found -%>
-<% if current_user %>
-
-  <%- #current_user has admin rights %>
-  <% if current_user.admin %>
+  <h1>Admin Home</h1>
 
     <%= link_to 'Sign Out', destroy_user_session_path,
     method: :delete %>
@@ -17,19 +14,10 @@
 
     <%= link_to 'Set Email Reminder Dates', 'email' %>
 
-  <%- #current_user is not an admin, get em outta here %>
-  <% else %>
-
-    <h3> Error, you do not have access to this page (Requires Admin Permissions)</h3>
-    <%= link_to 'Return to My sections', root_url %>
-
-  <% end %>
-
-<%- #not logged in, no session found %>
+<%- #current_user is not an admin, get em outta here %>
 <% else %>
 
-  <%= link_to 'Sign Up', new_user_registration_path %>
-
-  <%= link_to 'Sign In', new_user_session_path %>
+    <h3>Error: You do not have access to this page.</h3>
+    <%= link_to 'Back', root_url %>
 
 <% end %>
