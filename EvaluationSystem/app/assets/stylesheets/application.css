@@ -62,20 +62,25 @@ table.survey {
   background-color: #8c0034;
 }
 
+#adminFlexContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .aHomeButton {
   background-color: #b50043;
   text-align: center;
   border: .5px solid white;
-  padding: 15px 25px;
-  color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  flex-basis: 15%;
+  color: white !important;
   border-radius: 7px;
-  float: left;
-  margin-left: 12%;
   text-decoration: none;
 }
 
 .aHomeButton:hover {
-  background-color: #8c0034;
+  background-color: #8c0034 !important;
 }
 
 #loginForm {
