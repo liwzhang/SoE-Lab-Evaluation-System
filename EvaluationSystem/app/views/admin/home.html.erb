@@ -3,6 +3,7 @@
 
   <h1>Admin Home</h1>
 
+  <div id = 'adminFlexContainer'>
     <%= link_to 'TA Evaluation Questions', questions_path, class: 'aHomeButton' %>
 
     <%= link_to 'Lab Sections Information', sections_path, class: 'aHomeButton' %>
@@ -10,6 +11,8 @@
     <%= link_to 'Update Roster', new_uploader_path, class: 'aHomeButton' %>
 
     <%= link_to 'Set Email Reminder Dates', 'email', class: 'aHomeButton' %>
+
+  </div>
 
   <%- #current_user is not an admin, get em outta here %>
   <% else %>
