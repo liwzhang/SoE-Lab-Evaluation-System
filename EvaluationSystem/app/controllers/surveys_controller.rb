@@ -61,7 +61,7 @@ class SurveysController < ApplicationController
         format.json { render :show, status: :ok, location: @survey }
 
         # Update 'completed' attribute to true
-        submission = Survey.find_by(params[:id])
+        submission = Survey.find_by(survey_ID: @survey.survey_ID)
         submission.update(status: true)
 
         # Increment 'completed' attribute for section
