@@ -5,6 +5,7 @@
         <div>
             <%= simple_form_for :date, url: email_students_path do |f| %>
                 <%= f.input :send_email, collection: [["Now", 0], ["Tomorrow", 1], ["In 2 days", 2], ["Next week", 7]] %>
+                <br>
                 <%= submit_tag("Submit") %>
             <% end %>
             
