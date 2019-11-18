@@ -29,6 +29,10 @@ table.survey {
   margin: .5%;
 }
 
+#header a:hover {
+  background-color: transparent !important;
+}
+
 #menubar {
   height: 50px;
   width: 100%;
@@ -55,6 +59,22 @@ table.survey {
 }
 
 .regButton:hover {
+  background-color: #8c0034;
+}
+
+.aHomeButton {
+  background-color: #b50043;
+  text-align: center;
+  border: .5px solid white;
+  padding: 15px 25px;
+  color: white;
+  border-radius: 7px;
+  float: left;
+  margin-left: 12%;
+  text-decoration: none;
+}
+
+.aHomeButton:hover {
   background-color: #8c0034;
 }
 

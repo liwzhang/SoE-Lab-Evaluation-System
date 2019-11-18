@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_004234) do
+ActiveRecord::Schema.define(version: 2019_11_15_191535) do
 
   create_table "questions", force: :cascade do |t|
     t.integer "question_ID"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2019_11_04_004234) do
     t.text "Q20"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "key"
     t.index ["student_ID"], name: "index_surveys_on_student_ID", unique: true
   end
 
