@@ -1,3 +1,4 @@
+<div id = 'question-form'>
 <%= form_with(model: question, local: true) do |form| %>
   <% if question.errors.any? %>
     <div id="error_explanation">
@@ -17,13 +18,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :category %>
-    <%= form.text_area :category %>
+  <%= form.label :category %>
+    <%= form.select :category, [["Learning from Labs","Learning from Labs" ],
+      ["Lab Instructor","Lab Instructor"], ["Lab Space and Equipment", "Lab Space and Equipment"],
+      ["Time Required to Complete Labs","Time Required to Complete Labs"],
+      ["Lecture Section Instructor","Lecture Section Instructor"]] %>
   </div>
 
   <div class="field">
-    <%= form.label :question_type %>
-    <%= form.text_area :question_type %>
+  <%= form.label :question_type %>
+    <%= form.select :question_type, [['Numeric (1-5)', 
+        "Numeric (1-5)"],['Numeric (hourly)', "Numeric (hourly)"],
+       ['Text', "Text"]]%>
   </div>
 
   <div class="field">
@@ -35,3 +41,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>
