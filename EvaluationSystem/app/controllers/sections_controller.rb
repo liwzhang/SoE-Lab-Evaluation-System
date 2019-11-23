@@ -9,7 +9,7 @@ class SectionsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @sections.to_csv }
+      #format.csv { send_data @sections.to_csv }
     end
   end
 
@@ -79,7 +79,7 @@ class SectionsController < ApplicationController
 
     def downcase_email
       if !@section.professor_email.nil?
-        @section.professor_email = @section.professor_email.downcase!
+        @section.professor_email = @section.professor_email.downcase
       end
     end
 
