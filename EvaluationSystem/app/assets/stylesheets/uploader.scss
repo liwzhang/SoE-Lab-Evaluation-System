@@ -5,16 +5,14 @@
 input[type="radio"] {
   margin: 0 10px 0 10px;
 }
-div.uploader-title{
-  font-family: "Helvetica";
+div.uploader-title {
   text-align: center;
   margin: auto;
 }
 
-div.upload-form{
-  font-family: "Helvetica";
+div.upload-form {
   text-align: center;
-  border: 3px solid rgb(181,0, 67);
+  border: 3px solid rgb(181, 0, 67);
   border-radius: 25px;
   width: 400px;
   height: 250px;
@@ -24,25 +22,10 @@ div.upload-form{
   box-sizing: border-box;
 }
 
-div.upload-section{
+div.upload-section {
   text-align: center;
   height: 50px;
   padding: 5px;
   margin: 20px auto;
   text-align: center;
-}
-
-div.upload-section input[type ="submit"]{
-  background-color: rgb(181,0, 67);
-    border-radius: 10px;
-    padding: 5px 30px;
-    color: white;
-    text-align: center;
-    display: inline-block;
-}
-
-div.upload-section input[type ="submit"]:hover{
-  background-color: rgb(134, 134, 134);
-  color: black;
-  cursor: pointer;
 }

@@ -20,6 +20,11 @@ body {
   padding: 0;
 }
 
+.contents {
+  padding: 2% 5% 2% 5%;
+  align-content: center;
+}
+
 table.survey {
   width: 100%;
 }
@@ -37,10 +42,9 @@ table.survey {
   height: 50px;
   width: 100%;
   background-color: #b50043;
-  color: #000000;
 }
 
-#menubar h1 {
+#menubar h2 {
   float: left;
   margin-left: 1%;
   color: white;
@@ -90,4 +94,16 @@ table.survey {
 #instructions {
   text-align: center;
   margin-top: 5%;
+}
+
+input[type="submit"] {
+  color: white;
+  background-color: #b50043;
+  padding: 8px 15px;
+  text-align: center;
+  border: 0.5px solid white;
+}
+
+input[type="submit"]:hover {
+  background-color: #8c0034;
 }
