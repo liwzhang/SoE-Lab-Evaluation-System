@@ -66,7 +66,7 @@ class SurveysController < ApplicationController
 
         # Increment 'completed' attribute for section
         @section = Section.find_by(class_num: @survey.class_num)
-        @section.completed = @section.completed + 1
+        @section.update(completed: @section.completed + 1)
 
 
       else
