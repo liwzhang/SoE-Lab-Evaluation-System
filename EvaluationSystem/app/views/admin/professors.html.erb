@@ -1,6 +1,29 @@
 <% if(current_user && current_user.admin)%>
-<h1>Admin#professors</h1>
-<p>Find me in app/views/admin/professors.html.erb</p>
+<h1>Professors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Name</th>
+      <th>Created</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @professors.each do |professor| %>
+      <tr>
+        <td><%= professor.email %></td>
+        <td><%= professor.name %></td>
+        <td><%= professor.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back', root_url %>
+
 <% else %>
 
     <h3>Error: You do not have access to this page.</h3>
