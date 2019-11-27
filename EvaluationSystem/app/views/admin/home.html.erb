@@ -2,15 +2,15 @@
 <% if(current_user && current_user.admin)%>
 
   <h1>Admin Home</h1>
-
+  <br>
   <div id = 'adminFlexContainer'>
-    <%= link_to 'TA Evaluation Questions', questions_path, class: 'aHomeButton' %>
+    <%= link_to 'Lab Evaluation Questions', questions_path, class: 'aHomeButton' %>
 
     <%= link_to 'Lab Sections Information', sections_path, class: 'aHomeButton' %>
 
-    <%= link_to 'Update Roster', new_uploader_path, class: 'aHomeButton' %>
+    <%= link_to 'Update Lab Roster', new_uploader_path, class: 'aHomeButton' %>
 
-    <%= link_to 'Set Email Reminder Dates', 'email', class: 'aHomeButton' %>
+    <%= link_to 'Schedule Emails', 'email', class: 'aHomeButton' %>
 
     <%= link_to 'View Professors', 'professors', class: 'aHomeButton' %>
 

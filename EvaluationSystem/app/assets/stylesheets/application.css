@@ -15,10 +15,15 @@
  */
 /*@import "bootstrap";*/
 
- body {
-   margin: 0;
-   padding: 0;
- }
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.contents {
+  padding: 2% 5% 2% 5%;
+  align-content: center;
+}
 
 table.survey {
   width: 100%;
@@ -26,7 +31,7 @@ table.survey {
 
 #logo {
   width: 35%;
-  margin: .5%;
+  margin: 0.5%;
 }
 
 #header a:hover {
@@ -37,10 +42,9 @@ table.survey {
   height: 50px;
   width: 100%;
   background-color: #b50043;
-  color: #000000;
 }
 
-#menubar h1 {
+#menubar h2 {
   float: left;
   margin-left: 1%;
   color: white;
@@ -55,7 +59,7 @@ table.survey {
   background-color: #b50043;
   padding: 8px 15px;
   text-align: center;
-  border: .5px solid white;
+  border: 0.5px solid white;
 }
 
 .regButton:hover {
@@ -71,7 +75,7 @@ table.survey {
 .aHomeButton {
   background-color: #b50043;
   text-align: center;
-  border: .5px solid white;
+  border: 0.5px solid white;
   padding-top: 15px;
   padding-bottom: 15px;
   flex-basis: 15%;
@@ -96,4 +100,16 @@ table.survey {
 #instructions {
   text-align: center;
   margin-top: 5%;
+}
+
+input[type="submit"] {
+  color: white;
+  background-color: #b50043;
+  padding: 8px 15px;
+  text-align: center;
+  border: 0.5px solid white;
+}
+
+input[type="submit"]:hover {
+  background-color: #8c0034;
 }

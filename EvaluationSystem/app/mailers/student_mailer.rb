@@ -10,7 +10,7 @@ class StudentMailer < ApplicationMailer
     end
 
     # Sends the initial eval email
-    def eval_email(survey, section)
+    def eval_email(survey, section, check)
         @survey = survey
         @section = section
         mail(to: @survey.student_email, subject: "Lab Evaluation for #{@section.title}, #{@section.subject} #{@section.catalog}")
@@ -18,9 +18,10 @@ class StudentMailer < ApplicationMailer
 
     # Sends a reminder eval email
     def eval_reminder(survey, section)
-        #emails = Survey.pluck(:student_email)
         @survey = survey
         @section = section
-        mail(to: @survey.student_email, subject: "Lab Evaluation Reminder for #{@section.title}, #{@section.subject} #{@section.catalog}")
+        if @survey.status == false
+            mail(to: @survey.student_email, subject: "Lab Evaluation Reminder for #{@section.title}, #{@section.subject} #{@section.catalog}")
+        end 
     end
 end

@@ -8,7 +8,8 @@ class AdminController < ApplicationController
   # Sends scheduled emails to lab students based on user input
   def email_students
     date = params[:date][:send_email]
-    @emails = Survey.pluck(:student_email)
+    reminder = params[:date][:reminder]
+    #@emails = Survey.pluck(:student_email)
     @surveys = Survey.where.not(student_email: nil)
 
     if date == "0"
@@ -27,7 +28,12 @@ class AdminController < ApplicationController
     @surveys.each do |survey|
       #survey = Survey.find_by(student_email: email)
       section = Section.find_by(class_num: survey.class_num)
-      StudentMailer.eval_email(survey, section).deliver_later(wait_until: delay)
+      if reminder
+        StudentMailer.eval_reminder(survey, section).deliver_later(wait_until: delay)
+      else
+        StudentMailer.eval_email(survey, section).deliver_later(wait_until: delay)
+      end
+      
     end
   end
 
