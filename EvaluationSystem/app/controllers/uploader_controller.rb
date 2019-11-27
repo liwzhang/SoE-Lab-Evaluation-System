@@ -100,7 +100,7 @@ class UploaderController < ApplicationController
     CSV.foreach(x, headers: true) do |row|
       @section = Section.find_by(class_num: row['Class Nbr'])
       if @section.nil?
-        puts 'professor does no have a section'
+        puts 'professor does not have a section'
       elsif !(row['Instructor Email'].nil?)
         @section.professor_email = row['Instructor Email'].downcase
         if !@section.save
