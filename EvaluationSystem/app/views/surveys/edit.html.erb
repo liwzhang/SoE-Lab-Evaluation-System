@@ -1,6 +1,17 @@
 <h1>Lab Evaluation Survey</h1>
 
-<%= render 'respond', survey: @survey %>
+<%# url queryKey matches survey object key %>
+<% if params[:queryKey] == @survey.key %>
+
+  <%= render 'respond', survey: @survey %>
+
+<% else %>
+
+  <h3>Error! Please make sure you click the link sent to you via email to respond. </h3>
+
+<% end %>
+
+
 
 <%#= render 'form', survey: @survey %>
 

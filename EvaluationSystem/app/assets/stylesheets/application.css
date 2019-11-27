@@ -69,6 +69,7 @@ table.survey {
 #adminFlexContainer {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .aHomeButton {
@@ -89,6 +90,11 @@ table.survey {
 
 #loginForm {
   text-align: center;
+}
+
+#flexBreak {
+  flex-basis: 100%;
+  height: 50px;
 }
 
 #instructions {
