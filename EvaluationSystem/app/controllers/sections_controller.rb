@@ -91,10 +91,10 @@ class SectionsController < ApplicationController
     def autenticate_user!
       @section = Section.find(params[:id])
       if current_user.nil?
-          redirect_to root_path
+          redirect_to '/403.html'
           return
       elsif !current_user.admin and current_user.email != @section.professor_email
-        redirect_to root_path
+        redirect_to '/403.html'
       end
       
     end
