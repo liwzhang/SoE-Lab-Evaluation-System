@@ -1,15 +1,16 @@
 <%- #logged in, session found -%>
 <% if current_user %>
-
-  <h3>My Sections</h3>
-
+  <div id = 'sections-table-title'>
+    <h3>My Sections</h3>
+  </div>
+  <div id = 'sections-table'>
   <table>
     <thead>
       <tr>
         <th>Class Number</th>
         <th>Subject</th>
         <th>Catalog</th>
-        <th>Title</th>
+        <th class ="sections-table-title">Title</th>
         <th>Section</th>
         <th>Status</th>
         <th>Export</th>
@@ -22,16 +23,16 @@
           <td><%= section.class_num %></td>
           <td><%= section.subject %></td>
           <td><%= section.catalog %></td>
-          <td><%= section.title %></td>
+          <td class ="sections-table-title"><%= section.title %></td>
           <td><%= section.section %></td>
-          <td><%= section.completed %>/<%= section.enrolled%> </td>
-          <td><% if(!section.completed.nil? and section.completed >= 0) %> <%= link_to 'Export', section_path(section, format: :csv) %>
+          <td class ="center"><%= section.completed %>/<%= section.enrolled%> </td>
+          <td class ="center"><% if(!section.completed.nil? and section.completed >= 0) %> <%= link_to 'Export', section_path(section, format: :csv) %>
               <% else %>Export<% end %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-
+  </div>
 <%- #not logged in, no session found %>
 <% else %>
 
