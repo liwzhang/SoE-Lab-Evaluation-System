@@ -1,7 +1,7 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
   before_action :downcase_email, only: [:show, :edit, :update, :destroy]
-  before_action :autenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:show]
   # GET /sections
   # GET /sections.json
   def index
@@ -88,7 +88,7 @@ class SectionsController < ApplicationController
       params.require(:section).permit(:class_num, :professor_email, :enrolled, :completed, :subject, :catalog, :title, :section)
     end
 
-    def autenticate_user!
+    def authenticate_user!
       @section = Section.find(params[:id])
       if current_user.nil?
           redirect_to '/403.html'
