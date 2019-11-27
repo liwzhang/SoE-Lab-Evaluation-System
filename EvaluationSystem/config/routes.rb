@@ -10,11 +10,13 @@ Rails.application.routes.draw do
 
   #email submit button action
   post 'email_students' => 'admin#email_students', as: :email_students
+  post 'email_reminder' => 'admin#email_reminder', as: :email_reminder
 
   #user login resources
   devise_for :users
 
   #resourceful routes for models
+  resources :admin
   resources :evaluation
   resources :uploader
   resources :questions

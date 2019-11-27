@@ -4,7 +4,11 @@
     <p>Here you can schedule emails to be sent to all lab students.</p>
         <div>
             <%= simple_form_for :date, url: email_students_path do |f| %>
-                <%= f.input :send_email, collection: [["Now", 0], ["Tomorrow", 1], ["In 2 days", 2], ["Next week", 7]] %>
+                <p>Send email: </p>
+                <%= f.input_field :send_email, collection: [["Now", 0], ["Tomorrow", 1], ["In 2 days", 2], ["Next week", 7]] %>
+                <br>
+                <p><%= f.input_field :reminder, as: :boolean, boolean_style: :inline %> Reminder email?</p>
+                <br>
                 <%= submit_tag("Submit") %>
             <% end %>
             

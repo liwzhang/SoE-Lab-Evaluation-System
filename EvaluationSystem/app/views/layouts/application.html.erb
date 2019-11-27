@@ -15,7 +15,7 @@
         <%= image_tag 'SCUSoELogo.png', id: 'logo' %>
       </a>
       <div id = "menubar">
-        <h1>Welcome to SoE Lab Evaluation System<% if current_user %><% if current_user.admin %>, Admin<% else %>, Professor <%= current_user.name %><% end %><% end %></h1>
+        <h2>Welcome to SoE Lab Evaluation System<% if current_user %><% if current_user.admin %>, Admin<% else %>, Professor <%= current_user.name %><% end %><% end %></h2>
         <% if current_user %>
           <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'regButton' %>
         <% else %>
@@ -25,7 +25,9 @@
         <% end %>
       </div>
     </div>
-    <%= render 'layouts/alerts' %>
-    <%= yield %>
+    <div class = "contents flex-container">
+      <%= render 'layouts/alerts' %>
+      <%= yield %>
+    <div>
   </body>
 </html>
