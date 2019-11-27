@@ -1,7 +1,7 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
   before_action :downcase_email, only: [:show, :edit, :update, :destroy]
-
+  before_action :autenticate_user!, only: [:show]
   # GET /sections
   # GET /sections.json
   def index
@@ -9,7 +9,7 @@ class SectionsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @sections.to_csv }
+      #format.csv { send_data @sections.to_csv }
     end
   end
 
@@ -79,13 +79,24 @@ class SectionsController < ApplicationController
 
     def downcase_email
       if !@section.professor_email.nil?
-        @section.professor_email = @section.professor_email.downcase!
+        @section.professor_email = @section.professor_email.downcase
       end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
       params.require(:section).permit(:class_num, :professor_email, :enrolled, :completed, :subject, :catalog, :title, :section)
+    end
+
+    def autenticate_user!
+      @section = Section.find(params[:id])
+      if current_user.nil?
+          redirect_to root_path
+          return
+      elsif !current_user.admin and current_user.email != @section.professor_email
+        redirect_to root_path
+      end
+      
     end
     
 end

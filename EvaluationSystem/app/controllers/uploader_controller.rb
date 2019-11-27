@@ -17,6 +17,7 @@ class UploaderController < ApplicationController
       if !has_header_survey(k)
         puts "Not Right"
       else
+        Survey.delete_all()
         if has_header_professor(k)
           insert_professors(uploaded_file.path)
         end
@@ -98,7 +99,9 @@ class UploaderController < ApplicationController
   def insert_professors(x)
     CSV.foreach(x, headers: true) do |row|
       @section = Section.find_by(class_num: row['Class Nbr'])
-      if !row['Instructor Email'].nil?
+      if @section.nil?
+        puts 'professor does no have a section'
+      elsif !(row['Instructor Email'].nil?)
         @section.professor_email = row['Instructor Email'].downcase
         if !@section.save
           puts @section.errors.full_messages
