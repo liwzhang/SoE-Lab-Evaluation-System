@@ -1,3 +1,4 @@
+<% if(current_user && current_user.admin)%>
 <div class= uploader-title>
 <h1>Uploader</h1>
 <p>This is just to upload files</p>
@@ -20,5 +21,10 @@
     </div>
   </div>
 </div>
+<% end %>
+
+<% else %>
+
+    <%= render file: 'public/403-1.html' %>
 
 <% end %>
