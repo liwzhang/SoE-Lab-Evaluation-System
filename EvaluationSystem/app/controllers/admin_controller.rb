@@ -35,6 +35,7 @@ class AdminController < ApplicationController
   end
 
   def professors
+    @professors = User.where(admin: false)
   end
 
   def questions
