@@ -15,7 +15,7 @@
 <table class="survey">
   <% @categories.each do |category| %>
     <tr><td><h3><%= category %></h3><td></tr>
-      
+
         <% @questions.each do |question| %>
 
           <% if question.category == category %>
@@ -38,7 +38,7 @@
                   &gt;3 <%= form.radio_button(:"Q#{question.question_ID}", ">3") %></td>
 
                 <% else %>
-                  <td><%= form.text_area :"Q#{question.question_ID}" %></td>
+                  <td><%= form.text_area :"Q#{question.question_ID}", maxlength: 300 %></td>
 
                 <% end %>
               </div>
@@ -47,7 +47,7 @@
           <% end %>
 
         <% end %>
-      
+
   <% end %>
 </table>
 
