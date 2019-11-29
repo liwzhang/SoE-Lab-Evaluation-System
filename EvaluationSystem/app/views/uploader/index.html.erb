@@ -1,14 +1,10 @@
 <% if(current_user && current_user.admin)%>
     <h1>Your page has been uploaded</h1>
-    <p>Nothing to see here.</p>
-
-    <%= link_to "Upload more", "/uploader/new" %><p></p>
-    <%= link_to "See sections", "/sections" %><p></p>
-    <%= link_to "See Surveys", "/surveys" %><p></p>
-
-    <% if flash[:alert]%>
-        <p><%= flash[:alert]%></p>
-    <% end %>
+<br>
+<div class = uploader-index>
+    <%= link_to "Upload more", "/uploader/new", class: "UploadButton" %><p></p>
+    <%= link_to "See sections", "/sections", class: "UploadButton" %><p></p>
+<div>
 
 <% else %>
 

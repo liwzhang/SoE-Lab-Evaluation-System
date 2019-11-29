@@ -29,3 +29,26 @@ div.upload-section {
   margin: 20px auto;
   text-align: center;
 }
+
+div.uploader-index {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+div.uploader-index .UploadButton{
+  background-color: #b50043;
+  text-align: center;
+  border: 0.5px solid white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  flex-basis: 15%;
+  color: white !important;
+  border-radius: 7px;
+  text-decoration: none;
+}
+
+div.uploader-index .UploadButton:hover{
+  background-color: #8c0034 !important;
+}
+
