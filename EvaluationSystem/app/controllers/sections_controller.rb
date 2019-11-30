@@ -71,6 +71,12 @@ class SectionsController < ApplicationController
     end
   end
 
+  def destroy_all
+    Section.delete_all()
+    flash[:alert]= "all sections deleted"
+    redirect_to action:'index'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_section

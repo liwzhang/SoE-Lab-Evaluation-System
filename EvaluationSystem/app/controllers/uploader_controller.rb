@@ -15,9 +15,14 @@ class UploaderController < ApplicationController
     k = CSV.read(uploaded_file.path)[0]
     if theFrom == 'roster'
       if !has_header_survey(k)
-        puts "Not Right"
+        flash[:alert] = "The headers aren't right"
+        redirect_to '/uploader/new'
+        return
       else
         Survey.delete_all()
+        if has_header_roster(k)
+          insert_sections_from_roster(uploaded_file.path)
+        end
         if has_header_professor(k)
           insert_professors(uploaded_file.path)
         end
@@ -26,9 +31,11 @@ class UploaderController < ApplicationController
 
     elsif theFrom == 'classes'
       if !has_header_sections(k)
-        puts "Not Right"
+        flash[:alert] = "The headers aren't right"
+        redirect_to '/uploader/new'
+        return
       else
-        insert_sections(uploaded_file.path)
+        insert_sections_from_classes(uploaded_file.path)
       end
     end
     redirect_to '/uploader'
@@ -69,16 +76,25 @@ class UploaderController < ApplicationController
     t
   end
 
-  def has_header_survey(x)
+  def has_header_roster(x)
     t = false
-    if x.include? 'Student ID' and x.include? 'Class Nbr' and
-        x.include? 'Student Email'
+    if x.include? 'Class Nbr' and x.include? 'Subject' and
+        x.include? 'Catalog' and x.include? 'Title' and x.include? 'Tot Enrl'
       t = true
     end
     t
   end
 
-  def insert_sections(x)
+  def has_header_survey(x)
+    t = false
+    if x.include? 'Student ID' and x.include? 'Class Nbr' and
+        x.include? 'Student Email' 
+      t = true
+    end
+    t
+  end
+
+  def insert_sections_from_classes(x)
     CSV.foreach(x, headers: true) do |row|
       @section = Section.new()
       @section.class_num = row['Class Nbr']
@@ -86,6 +102,24 @@ class UploaderController < ApplicationController
       @section.catalog = row['Catalog']
       @section.title = row['Title']
       @section.enrolled = row['Enrollment after removal of drops']
+      if !Section.exists?(class_num: @section.class_num)
+        if !@section.save
+          puts 'error'
+        end
+      else
+        flash[:alert] = "Some values were ommited"
+      end
+    end
+  end
+
+  def insert_sections_from_roster(x)
+    CSV.foreach(x, headers: true) do |row|
+      @section = Section.new()
+      @section.class_num = row['Class Nbr']
+      @section.subject = row['Subject']
+      @section.catalog = row['Catalog']
+      @section.title = row['Title']
+      @section.enrolled = row['Tot Enrl']
       if !Section.exists?(class_num: @section.class_num)
         if !@section.save
           puts 'error'
