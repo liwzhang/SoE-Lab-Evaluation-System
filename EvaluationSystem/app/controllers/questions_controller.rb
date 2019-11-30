@@ -19,7 +19,14 @@ class QuestionsController < ApplicationController
 
   # GET /questions/new
   def new
-    @question = Question.new
+    count = Question.count(:all)
+    if count.nil? or count < 20
+      @question = Question.new
+      @question.question_ID = 0
+    else
+      flash[:alert] = "You can only have 20 questions"
+      redirect_to action: "index"
+    end
   end
 
   # GET /questions/1/edit
