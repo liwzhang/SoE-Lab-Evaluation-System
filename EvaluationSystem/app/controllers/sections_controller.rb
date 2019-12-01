@@ -73,6 +73,7 @@ class SectionsController < ApplicationController
 
   def destroy_all
     Section.delete_all()
+    Survey.delete_all()
     flash[:alert]= "all sections deleted"
     redirect_to action:'index'
   end
