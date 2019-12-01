@@ -19,8 +19,7 @@
   <%- #current_user is not an admin, get em outta here %>
   <% else %>
 
-    <h3> Error, you do not have access to this page (Requires Admin Permissions)</h3>
-    <%= button_to 'Return to My sections', root_url, class: 'aHomeButton' %>
+    <%= render :file => 'public/403' %>
 
   <% end %>
 

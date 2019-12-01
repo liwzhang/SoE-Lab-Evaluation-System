@@ -5,3 +5,124 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Question.delete_all
+
+Question.create(
+  category: 'Learning from Labs',
+  question_type: 'Numeric (1-5)',
+  content: 'The labs helped me understand the lecture material.',
+)
+
+Question.create(
+  category: 'Learning from Labs',
+  question_type: 'Numeric (1-5)',
+  content: 'The labs taught me new skills.',
+)
+
+Question.create(
+  category: 'Learning from Labs',
+  question_type: 'Numeric (1-5)',
+  content: 'The labs taught me to think creatively.',
+)
+
+Question.create(
+  category: 'Learning from Labs',
+  question_type: 'Numeric (1-5)',
+  content: 'I would be able to repeat the labs without help.',
+)
+
+Question.create(
+  category: 'Learning from Labs',
+  question_type: 'Text',
+  content: 'What was your favorite aspect of the lab?',
+)
+
+Question.create(
+  category: 'Learning from Labs',
+  question_type: 'Text',
+  content: 'What about the lab would you like to see improved?',
+)
+
+Question.create(
+  category: 'Lab Instructor',
+  question_type: 'Numeric (1-5)',
+  content: 'The lab instructor was supportive.',
+)
+
+Question.create(
+  category: 'Lab Instructor',
+  question_type: 'Numeric (1-5)',
+  content: 'The lab instructor was approachable.',
+)
+
+Question.create(
+  category: 'Lab Instructor',
+  question_type: 'Numeric (1-5)',
+  content: 'The lab instructor was able to answer my questions.',
+)
+
+Question.create(
+  category: 'Lab Instructor',
+  question_type: 'Numeric (1-5)',
+  content: 'The lab instructor helped me reach a clear understanding of key concepts.',
+)
+
+Question.create(
+  category: 'Lab Instructor',
+  question_type: 'Numeric (1-5)',
+  content: 'The lab instructor fostered a mutually respectful learning environment.',
+)
+
+Question.create(
+  category: 'Lab Instructor',
+  question_type: 'Text',
+  content: 'What, if anything, could the lab instructor do to improve the experience?',
+)
+
+Question.create(
+  category: 'Lab Space and Equipment',
+  question_type: 'Numeric (1-5)',
+  content: 'The amount of lab equipmentwas sufficient.',
+)
+
+Question.create(
+  category: 'Lab Space and Equipment',
+  question_type: 'Numeric (1-5)',
+  content: 'The available space was sufficient for the lab activities.',
+)
+
+Question.create(
+  category: 'Lab Space and Equipment',
+  question_type: 'Numeric (1-5)',
+  content: 'If lab equipment or setups were not functioning properly, adequate support was available to rectify the situation.',
+)
+
+Question.create(
+  category: 'Lab Space and Equipment',
+  question_type: 'Text',
+  content: 'What, if anything, could improve lab space and equipment?',
+)
+
+Question.create(
+  category: 'Time Required to Complete Labs',
+  question_type: 'Numeric (hourly)',
+  content: 'On average, the approximate number of hours completing a lab was',
+)
+
+Question.create(
+  category: 'Time Required to Complete Labs',
+  question_type: 'Numeric (hourly)',
+  content: 'How many hoursdid you spend preparing for the lab?',
+)
+
+Question.create(
+  category: 'Time Required to Complete Labs',
+  question_type: 'Numeric (hourly)',
+  content: 'How many hours did you spend writing lab reports outside the designated lab period?',
+)
+
+Question.create(
+  category: 'Lecture Section Instructor',
+  question_type: 'Text',
+  content: 'What feedback would you give the lecture section instructor (not the lab TA) about the labs?',
+)
