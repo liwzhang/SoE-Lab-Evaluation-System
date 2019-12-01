@@ -1,3 +1,6 @@
+# This is the Uploader Controller. It handles routes that point to /uploader.
+# In general, this controller is sed for uploading csv files.
+
 require 'csv'
 require 'securerandom'
 
@@ -11,9 +14,9 @@ class UploaderController < ApplicationController
   end
   
   # POST /uploader
-  # Creates multiple tables from a uploaded csv 
-  # Params: file, listc
-  # exceptions: redirects back to page if headers aren't valid
+  # Creates multiple tables from an uploaded csv 
+  # Implicit Params: file, listc
+  # Exceptions: redirects back to page if headers aren't valid
   def create
     uploaded_file = params[:file]
     theFrom = 'roster'
@@ -42,6 +45,7 @@ class UploaderController < ApplicationController
       else
         insert_sections_from_classes(uploaded_file.path)
       end
+
     end
     redirect_to '/uploader'
 
@@ -118,7 +122,8 @@ class UploaderController < ApplicationController
   # (Deprecated) Inserts the sections into the sections table from a class csv
   # Precondition: the Headers 'Class Nbr', 'Subject', 'Catalog', 'Title' 
   # and 'Enrollment after removal of drops' are in the first line of the csv
-  # params x:The file path for the csv
+  # Params: x:The file path for the csv
+  # Returns: None
   def insert_sections_from_classes(x)
     CSV.foreach(x, headers: true) do |row|
       @section = Section.new()
