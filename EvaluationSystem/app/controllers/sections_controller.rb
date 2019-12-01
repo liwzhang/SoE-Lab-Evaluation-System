@@ -71,6 +71,12 @@ class SectionsController < ApplicationController
     end
   end
 
+  def destroy_all
+    Section.delete_all()
+    flash[:alert]= "all sections deleted"
+    redirect_to action:'index'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_section
@@ -88,6 +94,8 @@ class SectionsController < ApplicationController
       params.require(:section).permit(:class_num, :professor_email, :enrolled, :completed, :subject, :catalog, :title, :section)
     end
 
+    # Checks if a user has permissions to access a file.
+    # Params: id
     def authenticate_user!
       @section = Section.find(params[:id])
       if current_user.nil?
