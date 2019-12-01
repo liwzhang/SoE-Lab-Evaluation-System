@@ -1,5 +1,5 @@
 # This is the Uploader Controller. It handles routes that point to /uploader.
-# In general, this controller is sed for uploading csv files.
+# In general, this controller is for uploading csv files.
 
 require 'csv'
 require 'securerandom'
