@@ -87,6 +87,7 @@ class SectionsController < ApplicationController
       @section = Section.find(params[:id])
     end
 
+    # Downcases an email for a professor.
     def downcase_email
       if !@section.professor_email.nil?
         @section.professor_email = @section.professor_email.downcase
