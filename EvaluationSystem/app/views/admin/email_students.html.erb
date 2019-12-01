@@ -2,10 +2,10 @@
 
     <h1>Success!</h1>
     <p>Thank you. Your emails have been scheduled.</p>
+    <%= link_to 'Back', admin_email_url %>
 
 <% else %>
 
-    <h3>Error: You do not have access to this page. </h3>
+    <%= render file: 'public/403-1.html' %>
 
 <% end %>
-    <%= link_to 'Back', admin_email_url %>
