@@ -12,8 +12,8 @@ default: &default
 development:
   <<: *default
   database: my_database_development
-  username: postgres #note may have to change later along with pass
-  password: 12345
+  username: PG_USERNAME #note may have to change later along with pass
+  password: PG_PASSWORD
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,8 +21,8 @@ development:
 test:
   <<: *default
   database: my_database_test
-  username: postgres
-  password: 12345
+  username: PG_USERNAME
+  password: PG_PASSWORD
 
 
 production:
