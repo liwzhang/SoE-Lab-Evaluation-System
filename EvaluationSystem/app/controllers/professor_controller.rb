@@ -2,6 +2,7 @@ class ProfessorController < ApplicationController
 
 before_action :redirect_after_sign_in
 
+  # GET /
   def sections
     if current_user
       @current_user_email = current_user.email
@@ -9,7 +10,7 @@ before_action :redirect_after_sign_in
     end
   end
 
-
+  # Redirects to sign in after sign out
   def redirect_after_sign_in
     if current_user && current_user.admin
         redirect_to controller: 'admin', action: 'home'
