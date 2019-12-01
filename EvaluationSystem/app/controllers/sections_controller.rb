@@ -66,14 +66,18 @@ class SectionsController < ApplicationController
   def destroy
     @section.destroy
     respond_to do |format|
-      format.html { redirect_to sections_url, notice: 'Section was successfully destroyed.' }
+      format.html { redirect_to sections_url, notice: 'Sections and Surveys were successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
+  # DELETE /sections
+  # Destroys all sections and Surveys
+  # Returns: Alert
   def destroy_all
     Section.delete_all()
-    flash[:alert]= "all sections deleted"
+    Survey.delete_all()
+    flash[:alert]= "All sections and surveys deleted."
     redirect_to action:'index'
   end
 
