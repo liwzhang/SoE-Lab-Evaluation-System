@@ -94,6 +94,8 @@ class SectionsController < ApplicationController
       params.require(:section).permit(:class_num, :professor_email, :enrolled, :completed, :subject, :catalog, :title, :section)
     end
 
+    # Checks if a user has permissions to access a file.
+    # Params: id
     def authenticate_user!
       @section = Section.find(params[:id])
       if current_user.nil?
