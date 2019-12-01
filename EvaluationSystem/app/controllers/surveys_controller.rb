@@ -8,7 +8,7 @@ class SurveysController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @surveys.to_csv }
+      #format.csv { send_data @surveys.to_csv }
     end
   end
 
@@ -18,7 +18,7 @@ class SurveysController < ApplicationController
     #@survey = Survey.find_by(survey_ID: params[:id])
     respond_to do |format|
       format.html
-      format.csv { send_data @survey.to_csv }
+      #format.csv { send_data @survey.to_csv }
     end
   end
 

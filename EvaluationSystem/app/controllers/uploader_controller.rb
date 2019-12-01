@@ -2,13 +2,18 @@ require 'csv'
 require 'securerandom'
 
 class UploaderController < ApplicationController
-
+  
+  # GET /surveys/new
   def new
   end
-
+  # GET /surveys
   def index
   end
-
+  
+  # POST /uploader
+  # Creates multiple tables from a uploaded csv 
+  # Params: file, listc
+  # exceptions: redirects back to page if headers aren't valid
   def create
     uploaded_file = params[:file]
     theFrom = params[:listc]
@@ -42,22 +47,29 @@ class UploaderController < ApplicationController
 
   end
 
+  #To make sure something is a csv
   def extension_white_list
     %w(csv)
   end
 
+  # GET /uploader/1
   def show
   end
 
+  # PATCH/PUT /uploader/1
   def update
 
   end
 
+  # DELETE /uploader/1
   def destroy
 
   end
 
   private
+  # Checks to see if it has the necessary headers for professors
+  # Params: x: the first line of a csv file
+  # Returns: bool
   def has_header_professor(x)
     t = false
     if x.include? 'Instructor Email' and 'Class Nbr'
@@ -66,6 +78,9 @@ class UploaderController < ApplicationController
     t
   end
 
+  # Checks to see if it has the necessary headers for sections
+  # Params: x: the first line of a csv file
+  # Returns: bool
   def has_header_sections(x)
     t = false
     if x.include? 'Class Nbr' and x.include? 'Subject' and
@@ -76,6 +91,9 @@ class UploaderController < ApplicationController
     t
   end
 
+  # Checks to see if it has the necessary headers for rosters to fill in sections
+  # Params: x: the first line of a csv file
+  # Returns: bool
   def has_header_roster(x)
     t = false
     if x.include? 'Class Nbr' and x.include? 'Subject' and
@@ -85,6 +103,9 @@ class UploaderController < ApplicationController
     t
   end
 
+  # Checks to see if it has the necessary headers for surveys
+  # Params: x: the first line of a csv file
+  # Returns: bool
   def has_header_survey(x)
     t = false
     if x.include? 'Student ID' and x.include? 'Class Nbr' and
@@ -94,6 +115,10 @@ class UploaderController < ApplicationController
     t
   end
 
+  # Inserts the sections into the sections table from a class csv
+  # Precondition: the Headers 'Class Nbr', 'Subject', 'Catalog', 'Title' 
+  # and 'Enrollment after removal of drops' are in the first line of the csv
+  # params x:The file path for the csv
   def insert_sections_from_classes(x)
     CSV.foreach(x, headers: true) do |row|
       @section = Section.new()
@@ -112,6 +137,10 @@ class UploaderController < ApplicationController
     end
   end
 
+  # Inserts the sections into the sections table from a roster csv
+  # Precondition: the Headers 'Class Nbr', 'Subject', 'Catalog', 'Title' 
+  # and 'Tot Enrl' are in the first line of the csv
+  # Params: x:The file path for the csv
   def insert_sections_from_roster(x)
     CSV.foreach(x, headers: true) do |row|
       @section = Section.new()
@@ -130,6 +159,11 @@ class UploaderController < ApplicationController
     end
   end
 
+  # Inserts the professors into the sections table from a roster csv
+  # Precondition: Professor has a section; Instructor email and class Nbr
+  # are in the first line of the csv
+  # Params: x:The file path for the csv
+  # Exceptions: Professor does not have a section
   def insert_professors(x)
     CSV.foreach(x, headers: true) do |row|
       @section = Section.find_by(class_num: row['Class Nbr'])
@@ -144,6 +178,10 @@ class UploaderController < ApplicationController
     end
   end
 
+  # Inserts the student surveys into the survey table from a roster csv
+  # Precondition: 'Student ID','Class Nbr', 'Student Email'
+  # are in the first line of the csv
+  # Params: x:The file path for the csv
   def insert_students(x)
     y = Survey.maximum('survey_ID')
     surveycount = 0
