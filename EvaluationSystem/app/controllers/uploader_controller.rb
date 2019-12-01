@@ -16,7 +16,7 @@ class UploaderController < ApplicationController
   # exceptions: redirects back to page if headers aren't valid
   def create
     uploaded_file = params[:file]
-    theFrom = params[:listc]
+    theFrom = 'roster'
     k = CSV.read(uploaded_file.path)[0]
     if theFrom == 'roster'
       if !has_header_survey(k)
@@ -78,7 +78,7 @@ class UploaderController < ApplicationController
     t
   end
 
-  # Checks to see if it has the necessary headers for sections
+  # (Deprecated) Checks to see if it has the necessary headers for sections
   # Params: x: the first line of a csv file
   # Returns: bool
   def has_header_sections(x)
@@ -115,7 +115,7 @@ class UploaderController < ApplicationController
     t
   end
 
-  # Inserts the sections into the sections table from a class csv
+  # (Deprecated) Inserts the sections into the sections table from a class csv
   # Precondition: the Headers 'Class Nbr', 'Subject', 'Catalog', 'Title' 
   # and 'Enrollment after removal of drops' are in the first line of the csv
   # params x:The file path for the csv
