@@ -1,3 +1,4 @@
+<%# Generates a section page for a professor%>
 <% if(current_user && current_user.admin || @current_user_email == @section.professor_email)%>
   <p id="notice"><%= notice %></p>
 
