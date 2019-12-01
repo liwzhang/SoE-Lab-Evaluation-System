@@ -12,26 +12,6 @@
         <th>Class Num</th>
         <th>Survey ID</th>
         <th>Status</th>
-        <th>Q1</th>
-        <th>Q2</th>
-        <th>Q3</th>
-        <th>Q4</th>
-        <th>Q5</th>
-        <th>Q6</th>
-        <th>Q7</th>
-        <th>Q8</th>
-        <th>Q9</th>
-        <th>Q10</th>
-        <th>Q11</th>
-        <th>Q12</th>
-        <th>Q13</th>
-        <th>Q14</th>
-        <th>Q15</th>
-        <th>Q16</th>
-        <th>Q17</th>
-        <th>Q18</th>
-        <th>Q19</th>
-        <th>Q20</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -44,26 +24,6 @@
           <td><%= survey.class_num %></td>
           <td><%= survey.survey_ID %></td>
           <td><%= survey.status %></td>
-          <td><%= survey.Q1 %></td>
-          <td><%= survey.Q2 %></td>
-          <td><%= survey.Q3 %></td>
-          <td><%= survey.Q4 %></td>
-          <td><%= survey.Q5 %></td>
-          <td><%= survey.Q6 %></td>
-          <td><%= survey.Q7 %></td>
-          <td><%= survey.Q8 %></td>
-          <td><%= survey.Q9 %></td>
-          <td><%= survey.Q10 %></td>
-          <td><%= survey.Q11 %></td>
-          <td><%= survey.Q12 %></td>
-          <td><%= survey.Q13 %></td>
-          <td><%= survey.Q14 %></td>
-          <td><%= survey.Q15 %></td>
-          <td><%= survey.Q16 %></td>
-          <td><%= survey.Q17 %></td>
-          <td><%= survey.Q18 %></td>
-          <td><%= survey.Q19 %></td>
-          <td><%= survey.Q20 %></td>
           <td><%= link_to 'Show', survey %></td>
           <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
           <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -80,7 +40,6 @@
 
 <% else %>
 
-    <h3>Error: You do not have access to this page.</h3>
-    <%= link_to 'Back', root_url %>
+    <%= render file: 'public/403-1.html' %>
 
 <% end %>

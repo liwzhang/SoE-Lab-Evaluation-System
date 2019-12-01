@@ -13,7 +13,7 @@ div.line{
     text-align: center;
     border: 1px solid rgb(49, 49, 49);
     width: 40%;
-    height: 500px;
+    height: 550px;
     padding: 30px;
     background-color: rgb(214, 214, 214);
     border-radius: 25px;
@@ -38,16 +38,4 @@ div.line{
   div.devise-registration div.field label[for ='user_password']{
     margin-right: 85px;
   }
-  div.devise-registration div.actions input[type = 'submit']{
-    background-color: rgb(181,0, 67);
-    border-radius: 10px;
-    padding: 5px 30px;
-    color: white;
-    text-align: center;
-    display: inline-block;
-  }
-  div.devise-registration div.actions input[type = 'submit']:hover{
-    background-color: rgb(134, 134, 134);
-    color: black;
-    cursor: pointer;
-  }
+ 
