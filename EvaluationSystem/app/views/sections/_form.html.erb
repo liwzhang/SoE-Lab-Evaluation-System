@@ -1,3 +1,4 @@
+<%# Provides a form to either edit or create a new section%>
 <%= form_with(model: section, local: true) do |form| %>
   <% if section.errors.any? %>
     <div id="error_explanation">
