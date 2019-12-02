@@ -1,14 +1,18 @@
+<%- #log in page %>
 <div id = 'loginForm'>
 <div class="devise-session">
 <h2>Sign in</h2>
 <div class= "line">
 </div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <%- #account username/email field %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <%- #account password field %>
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
@@ -21,6 +25,7 @@
     </div>
   <% end %>
 
+  <%- #submit field %>
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
@@ -29,4 +34,3 @@
 <%= render "devise/shared/links" %>
 </div>
 </div>
-
