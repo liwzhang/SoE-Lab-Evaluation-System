@@ -1,9 +1,12 @@
+# This is the sections Controller. It handles routes that point to /sections.
+# In general, this controller handles section management backend-wise
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
   before_action :downcase_email, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:show]
   # GET /sections
   # GET /sections.json
+  # Just shows all the sections
   def index
     @sections = Section.all
 
@@ -15,6 +18,7 @@ class SectionsController < ApplicationController
 
   # GET /sections/1
   # GET /sections/1.json
+  # Shows a specific section
   def show
     respond_to do |format|
       format.html
@@ -23,16 +27,19 @@ class SectionsController < ApplicationController
   end
 
   # GET /sections/new
+  # Generates a section
   def new
     @section = Section.new
   end
 
   # GET /sections/1/edit
+  # Prepares to edit a section
   def edit
   end
 
   # POST /sections
   # POST /sections.json
+  # Generates a new section
   def create
     @section = Section.new(section_params)
 
@@ -49,6 +56,7 @@ class SectionsController < ApplicationController
 
   # PATCH/PUT /sections/1
   # PATCH/PUT /sections/1.json
+  # Updates a specific section
   def update
     respond_to do |format|
       if @section.update(section_params)
@@ -63,6 +71,7 @@ class SectionsController < ApplicationController
 
   # DELETE /sections/1
   # DELETE /sections/1.json
+  # Destroys a specfic section
   def destroy
     @section.destroy
     respond_to do |format|
@@ -73,7 +82,7 @@ class SectionsController < ApplicationController
 
   # DELETE /sections
   # Destroys all sections and Surveys
-  # Returns: Alert
+  # It later returns an alert to the browser notifying them of the deletion
   def destroy_all
     Section.delete_all()
     Survey.delete_all()
@@ -95,6 +104,7 @@ class SectionsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    # verfies params
     def section_params
       params.require(:section).permit(:class_num, :professor_email, :enrolled, :completed, :subject, :catalog, :title, :section)
     end
