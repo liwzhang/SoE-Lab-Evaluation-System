@@ -122,7 +122,8 @@ class UploaderController < ApplicationController
     end
     t
   end
-  # Just checks if the csv file sastifies some conditions 
+  # Just checks if the csv file are not violating conditions
+  # these conditions are string being too big or numbers going overboard. 
   # Precondition: the Header 'Instructor Email' Exists 
   # and is in the first line of the csv
   # Params: x: The file path for the csv
