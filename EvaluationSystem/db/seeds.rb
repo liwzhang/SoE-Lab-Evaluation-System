@@ -112,7 +112,7 @@ Question.create(
 Question.create(
   category: 'Time Required to Complete Labs',
   question_type: 'Numeric (hourly)',
-  content: 'How many hoursdid you spend preparing for the lab?',
+  content: 'How many hours did you spend preparing for the lab?',
 )
 
 Question.create(
