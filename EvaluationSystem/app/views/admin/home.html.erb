@@ -16,7 +16,7 @@
 
   </div>
 
-  <%- #current_user is not an admin, get em outta here %>
+  <%- #current_user is not an admin, render permissions error page %>
   <% else %>
 
     <%= render :file => 'public/403' %>

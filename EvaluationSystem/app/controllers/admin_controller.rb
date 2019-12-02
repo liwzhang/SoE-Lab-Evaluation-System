@@ -33,13 +33,14 @@ class AdminController < ApplicationController
       else
         StudentMailer.eval_email(survey, section).deliver_later(wait_until: delay)
       end
-      
+
     end
   end
 
   def sections
   end
 
+  #displays list of professors 
   def professors
     @professors = User.where(admin: false)
   end
