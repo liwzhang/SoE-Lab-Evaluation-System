@@ -6,7 +6,7 @@
         <div>
             <%= simple_form_for :date, url: email_students_path do |f| %>
                 <p>Send email: </p>
-                <%= f.input_field :send_email, collection: [["Now", 0], ["Tomorrow", 1], ["In 2 days", 2], ["Next week", 7]] %>
+                <%= f.input_field :send_email, collection: [["Now", 0], ["In 1 minute", 1], ["In 5 minutes", 5], ["In 30 minutes", 30]] %>
                 <br>
                 <p><%= f.input_field :reminder, as: :boolean, boolean_style: :inline %> Reminder email?</p>
                 <br>

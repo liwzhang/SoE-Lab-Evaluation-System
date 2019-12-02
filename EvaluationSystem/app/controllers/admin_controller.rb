@@ -16,13 +16,13 @@ class AdminController < ApplicationController
       delay = 0
 
     elsif date == "1"
-      delay = Date.tomorrow.noon
+      delay = 1.minute.from_now
 
-    elsif date == "2"
-      delay = 2.days.from_now.noon
+    elsif date == "5"
+      delay = 5.minutes.from_now
 
     else
-      delay = 1.week.from_now.noon
+      delay = 30.minutes.from_now
     end
 
     @surveys.each do |survey|
