@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  #admin area of site
   get 'admin/home'
   get 'admin/sections'
   get 'admin/email'

@@ -1,9 +1,11 @@
+<%- #if current user is logged in, session found and has admin rights -%>
 <% if(current_user && current_user.admin)%>
 
     <h1>Success!</h1>
     <p>Thank you. Your emails have been scheduled.</p>
     <%= link_to 'Back', admin_email_url %>
 
+<%- #current_user is not an admin, render permissions error page %>
 <% else %>
 
     <%= render file: 'public/403-1.html' %>

@@ -1,6 +1,8 @@
+<%- #if current_user is logged in, session found and has admin rights -%>
 <% if(current_user && current_user.admin)%>
 <h1>Professors</h1>
 
+<%- #table of saved professor accounts -%>
 <table>
   <thead>
     <tr>
@@ -24,6 +26,7 @@
 
 <%= link_to 'Back', root_url %>
 
+<%- #current_user is not an admin, render permissions error page %>
 <% else %>
 
     <%= render file: 'public/403-1.html' %>
