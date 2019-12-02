@@ -10,7 +10,7 @@ class StudentMailer < ApplicationMailer
     end
 
     # Sends the initial eval email
-    def eval_email(survey, section, check)
+    def eval_email(survey, section)
         @survey = survey
         @section = section
         mail(to: @survey.student_email, subject: "Lab Evaluation for #{@section.title}, #{@section.subject} #{@section.catalog}")
