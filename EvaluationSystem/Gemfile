@@ -82,3 +82,6 @@ gem 'jquery-rails'
 
 # For production
 gem 'rails_12factor'
+
+# For email sending on Heroku
+gem 'sendgrid-ruby'
