@@ -1,3 +1,4 @@
+<%# Generates a survey response page%>
 <% if !survey.status %>
 <%= form_with(model: survey, local: true) do |form| %>
   <% if survey.errors.any? %>
@@ -30,7 +31,7 @@
                   <%= form.radio_button(:"Q#{question.question_ID}", "4") %>
                   <%= form.radio_button(:"Q#{question.question_ID}", "5") %> strongly agree</td>
 
-                <% elsif question.question_type == "Numeric (hourly)" %>
+                <% elsif question.question_type == "Numeric (hours)" %>
                   <td>&lt;2 <%= form.radio_button(:"Q#{question.question_ID}", "<2") %>
                   2 <%= form.radio_button(:"Q#{question.question_ID}", "2") %>
                   2.5 <%= form.radio_button(:"Q#{question.question_ID}", "2.5") %>
@@ -38,7 +39,8 @@
                   &gt;3 <%= form.radio_button(:"Q#{question.question_ID}", ">3") %></td>
 
                 <% else %>
-                  <td><%= form.text_area :"Q#{question.question_ID}", maxlength: 300 %></td>
+                  <td><%= form.text_area :"Q#{question.question_ID}", maxlength: 500 %></td>
+                  <i>Note: 500 Characters Allowed</i>
 
                 <% end %>
               </div>

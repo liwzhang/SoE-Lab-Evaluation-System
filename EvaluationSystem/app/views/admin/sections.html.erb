@@ -1,6 +1,9 @@
+<%- #if current user is logged in, session found and has admin rights -%>
 <% if(current_user && current_user.admin)%>
 <h1>Admin#sections</h1>
 <p>Find me in app/views/admin/sections.html.erb</p>
+
+<%- #current_user is not an admin, render permissions error page %>
 <% else %>
 
     <%= render file: 'public/403-1.html' %>
