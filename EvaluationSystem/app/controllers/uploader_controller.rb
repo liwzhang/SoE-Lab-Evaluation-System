@@ -206,7 +206,6 @@ class UploaderController < ApplicationController
           puts 'error'
         end
       else
-        flash[:alert] = "Some values were ommited"
       end
     end
   end
