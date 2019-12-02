@@ -147,7 +147,7 @@ class UploaderController < ApplicationController
               return 
             end
           else
-            if value.length > 30000
+            if value[1].length > 30000
               flash[:alert] = "String too big Row: " + i.to_s + " Columnn:" + j.to_s
               false
               return
