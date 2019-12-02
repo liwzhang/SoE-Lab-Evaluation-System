@@ -2,14 +2,14 @@
 <% if(current_user && current_user.admin)%>
 <div class= uploader-title>
 <h1>Uploader</h1>
-<p>This is just to upload files</p>
+<p>Initialize the quarterly database here. </p>
 </div>
 <div class= uploader>
 <%= form_with(url: '/uploader', method: 'post', multipart: true) do %>
 <div class= upload-form>
   <div class = 'upload-section'>
-    To submit surveys, these headers are required:<br>
-    Class Nbr, Instructor Email, Student ID, Student Email, Subject, Catalog, Title, Tot Enrl.
+    These headers are required:<br>
+    <b>Class Nbr, Instructor Email, Student ID, Student Email, Subject, Catalog, Title, Tot Enrl.</b>
     <br><br>
     <div class = 'section'>
       <%= file_field_tag 'file', accept: '.csv'  %>

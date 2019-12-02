@@ -23,7 +23,7 @@ class UploaderController < ApplicationController
     k = CSV.read(uploaded_file.path)[0]
     if theFrom == 'roster'
       if !has_header_survey(k)
-        flash[:alert] = "The headers aren't right"
+        flash[:alert] = "The headers are incorrect."
         redirect_to '/uploader/new'
         return
       else
