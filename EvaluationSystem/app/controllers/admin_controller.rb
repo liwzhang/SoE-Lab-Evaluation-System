@@ -28,10 +28,10 @@ class AdminController < ApplicationController
     @surveys.each do |survey|
       #survey = Survey.find_by(student_email: email)
       section = Section.find_by(class_num: survey.class_num)
-      if reminder
-        StudentMailer.eval_reminder(survey, section).deliver_later(wait_until: delay)
-      else
+      if reminder == "0"
         StudentMailer.eval_email(survey, section).deliver_later(wait_until: delay)
+      else
+        StudentMailer.eval_reminder(survey, section).deliver_later(wait_until: delay)
       end
 
     end
