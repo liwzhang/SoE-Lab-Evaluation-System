@@ -91,7 +91,7 @@ class SectionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Use callbacks to share common setup or constraints between actions
     def set_section
       @section = Section.find(params[:id])
     end
@@ -103,13 +103,13 @@ class SectionsController < ApplicationController
       end
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    # Verfies params.
+    # Never trust parameters from the scary internet, only allow the white list through
+    # Verfies params
     def section_params
       params.require(:section).permit(:class_num, :professor_email, :enrolled, :completed, :subject, :catalog, :title, :section)
     end
 
-    # Checks if a user has permissions to access a file.
+    # Checks if a user has permissions to access a file
     # Params: id
     def authenticate_user!
       @section = Section.find(params[:id])
