@@ -1,7 +1,6 @@
-<h1>Lab Evaluation Survey</h1>
-
 <%# url queryKey matches survey object key %>
 <% if params[:queryKey] == @survey.key %>
+  <h1>Lab Evaluation Survey</h1>
 
   <%= render 'respond', survey: @survey %>
 
