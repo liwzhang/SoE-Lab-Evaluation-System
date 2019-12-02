@@ -1,10 +1,10 @@
-# This is the Survey Controller. It handles routes that point to /surveys.
+# This is the survey controller. It handles routes that point to /surveys.
 # In general, this controller handles survey management backend-wise
 class SurveysController < ApplicationController
   before_action :set_survey, only: [:show, :edit, :update, :destroy]
 
   # GET /surveys
-  # Called whenever a message is sent above. 
+  # Called whenever a message is sent above 
   # Just gets all Surveys to be outputed latter
   def index
     @surveys = Survey.all
