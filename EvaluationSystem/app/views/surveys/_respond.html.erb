@@ -31,7 +31,7 @@
                   <%= form.radio_button(:"Q#{question.question_ID}", "4") %>
                   <%= form.radio_button(:"Q#{question.question_ID}", "5") %> strongly agree</td>
 
-                <% elsif question.question_type == "Numeric (hourly)" %>
+                <% elsif question.question_type == "Numeric (hours)" %>
                   <td>&lt;2 <%= form.radio_button(:"Q#{question.question_ID}", "<2") %>
                   2 <%= form.radio_button(:"Q#{question.question_ID}", "2") %>
                   2.5 <%= form.radio_button(:"Q#{question.question_ID}", "2.5") %>
