@@ -1,3 +1,4 @@
+<%# A view file that shows the user to submit a file page%>
 <% if(current_user && current_user.admin)%>
 <div class= uploader-title>
 <h1>Uploader</h1>
@@ -7,14 +8,12 @@
 <%= form_with(url: '/uploader', method: 'post', multipart: true) do %>
 <div class= upload-form>
   <div class = 'upload-section'>
+    To submit surveys, these headers are required:<br>
+    Class Nbr, Instructor Email, Student ID, Student Email, Subject, Catalog, Title, Tot Enrl.
+    <br><br>
     <div class = 'section'>
       <%= file_field_tag 'file', accept: '.csv'  %>
     </div>
-    <div class = 'upload-section'>
-      Pick what type<br>
-      Classes <%= radio_button_tag(:listc, "classes") %>
-      Roster <%= radio_button_tag(:listc, "roster") %>
-     </div>
      <div class = 'upload-section'>
        <%= submit_tag("Submit") %>
       </div>
