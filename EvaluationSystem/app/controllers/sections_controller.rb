@@ -1,4 +1,4 @@
-# This is the sections Controller. It handles routes that point to /sections.
+# This is the sections controller. It handles routes that point to /sections.
 # In general, this controller handles section management backend-wise
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
