@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
       @question = Question.new
       @question.question_ID = 0
     else
-      flash[:alert] = "You can only have 20 questions"
+      flash[:alert] = "You can only have 20 questions."
       redirect_to action: "index"
     end
   end
