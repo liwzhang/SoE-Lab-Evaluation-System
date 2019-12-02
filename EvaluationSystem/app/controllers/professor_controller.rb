@@ -4,6 +4,7 @@ class ProfessorController < ApplicationController
 before_action :redirect_after_sign_in
 
   #list of sections relevant to current professor logged in
+  # GET /
   def sections
     if current_user
       @current_user_email = current_user.email

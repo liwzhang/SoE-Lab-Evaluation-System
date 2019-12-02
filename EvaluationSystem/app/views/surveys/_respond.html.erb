@@ -1,3 +1,4 @@
+<%# Generates a survey response page%>
 <% if !survey.status %>
 <%= form_with(model: survey, local: true) do |form| %>
   <% if survey.errors.any? %>
