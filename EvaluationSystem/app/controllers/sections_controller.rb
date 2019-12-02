@@ -104,7 +104,7 @@ class SectionsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    # verfies params
+    # Verfies params.
     def section_params
       params.require(:section).permit(:class_num, :professor_email, :enrolled, :completed, :subject, :catalog, :title, :section)
     end
