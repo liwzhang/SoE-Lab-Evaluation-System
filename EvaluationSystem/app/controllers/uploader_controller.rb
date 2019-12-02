@@ -27,6 +27,10 @@ class UploaderController < ApplicationController
         redirect_to '/uploader/new'
         return
       else
+        if !is_within_bounds(uploaded_file.path)
+          redirect_to '/uploader/new'
+          return
+        end
         Survey.delete_all()
         if has_header_roster(k)
           insert_sections_from_roster(uploaded_file.path)
@@ -117,6 +121,48 @@ class UploaderController < ApplicationController
       t = true
     end
     t
+  end
+  # Just checks if the csv file sastifies some conditions 
+  # Precondition: the Header 'Instructor Email' Exists 
+  # and is in the first line of the csv
+  # Params: x: The file path for the csv
+  # Returns: False if conditions are not sastified, true otherwise
+  def is_within_bounds(x)
+    i = 2
+    CSV.foreach(x, headers: true) do |row|
+      j = 1
+      if !row['Instructor Email'].nil? and row['Instructor Email'].length >=255
+        flash[:alert] = "String too big for Instructor Email. Row: " + i.to_s 
+        false
+        return
+      end
+      for value in row do
+        if value[1].nil? 
+        elsif value[1].instance_of?(String)
+          if value[1].match(/^(\d)+$/)
+            if value[1].to_i > 2147483646
+              flash[:alert] = "Number out of bounds Row: " + i.to_s + " Columnn:" + j.to_s
+              false
+              return 
+            end
+          else
+            if value.length > 30000
+              flash[:alert] = "String too big Row: " + i.to_s + " Columnn:" + j.to_s
+              false
+              return
+            end  
+          end
+        else
+          flash[:alert] = "Can't read Row: " + i.to_s + " Columnn:" + j.to_s
+          false
+          return
+        end
+        j= j + 1
+      end
+      i = i + 1
+    end
+
+    true
   end
 
   # (Deprecated) Inserts the sections into the sections table from a class csv
