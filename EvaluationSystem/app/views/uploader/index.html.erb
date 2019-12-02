@@ -1,9 +1,10 @@
+<%# A view file that displays after submitting a csv file%>
 <% if(current_user && current_user.admin)%>
     <h1>Your page has been uploaded</h1>
 <br>
 <div class = uploader-index>
-    <%= link_to "Upload more", "/uploader/new", class: "UploadButton" %><p></p>
-    <%= link_to "See sections", "/sections", class: "UploadButton" %><p></p>
+    <%= link_to "Upload more", "/uploader/new" %> | 
+    <%= link_to "See sections", "/sections" %><p></p>
 <div>
 
 <% else %>

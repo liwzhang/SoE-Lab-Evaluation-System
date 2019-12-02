@@ -1,8 +1,11 @@
+# This is the question controller. It handles routes that point to /questions.
+# In general, this controller handles question management backend-wise
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   # GET /questions
   # GET /questions.json
+  # Shows all questions
   def index
     @questions = Question.all
 
@@ -13,11 +16,13 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1
   # GET /questions/1.json
+  # Shows a specific question
   def show
 
   end
 
   # GET /questions/new
+  # Generates a new question, but at a max of 20
   def new
     count = Question.count(:all)
     if count.nil? or count < 20
@@ -30,12 +35,14 @@ class QuestionsController < ApplicationController
   end
 
   # GET /questions/1/edit
+  # Edits a Question
   def edit
 
   end
 
   # POST /questions
   # POST /questions.json
+  # Creates a new question
   def create
     @question = Question.new(question_params)
 
@@ -52,6 +59,7 @@ class QuestionsController < ApplicationController
 
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
+  # Updates a question
   def update
     respond_to do |format|
       if @question.update(question_params)

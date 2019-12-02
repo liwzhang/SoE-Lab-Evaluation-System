@@ -1,8 +1,11 @@
+# This is the survey controller. It handles routes that point to /surveys.
+# In general, this controller handles survey management backend-wise
 class SurveysController < ApplicationController
   before_action :set_survey, only: [:show, :edit, :update, :destroy]
 
   # GET /surveys
-  # GET /surveys.json
+  # Called whenever a message is sent above 
+  # Just gets all Surveys to be outputed latter
   def index
     @surveys = Survey.all
 
@@ -14,6 +17,7 @@ class SurveysController < ApplicationController
 
   # GET /surveys/1
   # GET /surveys/1.json
+  # Shows a Survey when a message is sent above
   def show
     #@survey = Survey.find_by(survey_ID: params[:id])
     respond_to do |format|
@@ -23,11 +27,13 @@ class SurveysController < ApplicationController
   end
 
   # GET /surveys/new
+  # Prepares a Survey when a message is sent above
   def new
     @survey = Survey.new
   end
 
   # GET /surveys/1/edit
+  # Initates an edit Survey whenever a user goes to edit a survey
   def edit
     @questions = Question.all
     @categories = ["Learning from Labs", "Lab Instructor", "Lab Space and Equipment", "Time Required to Complete Labs", "Lecture Section Instructor"]
@@ -36,6 +42,7 @@ class SurveysController < ApplicationController
 
   # POST /surveys
   # POST /surveys.json
+  # Creates a new survey.
   def create
     @survey = Survey.new(survey_params)
 
@@ -52,6 +59,7 @@ class SurveysController < ApplicationController
 
   # PATCH/PUT /surveys/1
   # PATCH/PUT /surveys/1.json
+  # Updates a survey when a survey is completed
   def update
     @questions = Question.all
     @categories = ["Learning from Labs", "Lab Instructor", "Lab Space and Equipment", "Time Required to Complete Labs", "Lecture Section Instructor"]
@@ -78,6 +86,7 @@ class SurveysController < ApplicationController
 
   # DELETE /surveys/1
   # DELETE /surveys/1.json
+  # Deletes a survey when a destroy survey request is called
   def destroy
     @survey.destroy
     respond_to do |format|
@@ -93,6 +102,7 @@ class SurveysController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    # Verifies survey Params
     def survey_params
       params.require(:survey).permit(:student_ID, :student_email, :class_num, :survey_ID, :status, :Q1, :Q2, :Q3, :Q4, :Q5, :Q6, :Q7, :Q8, :Q9, :Q10, :Q11, :Q12, :Q13, :Q14, :Q15, :Q16, :Q17, :Q18, :Q19, :Q20)
     end

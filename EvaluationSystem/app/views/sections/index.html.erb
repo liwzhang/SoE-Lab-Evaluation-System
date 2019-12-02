@@ -1,3 +1,5 @@
+<%# Generates a Sections page for the admin to see all sections.
+    It also provides optiions to delete and edit pages%>
 <% if(current_user && current_user.admin)%>
   <p id="notice"><%= notice %></p>
 
@@ -40,7 +42,7 @@
   <br>
   <%= link_to 'Clear Sections', destroy_all_sections_path ,method: :delete, data: { confirm: 
 'Are you sure?
-This will remove ALL sections' } %> |
+This will remove ALL sections and surveys.' } %> |
   <%= link_to 'New Section', new_section_path %> | 
   <%= link_to 'Back', controller: 'admin', action: 'home' %>
 
