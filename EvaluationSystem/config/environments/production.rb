@@ -73,10 +73,10 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
     address: "smtp.sendgrid.net",
-    port: 465,
+    port: 587,
     domain: "scu-evaluation-system.herokuapp.com",
-    user_name: ENV["SENDGRID_USERNAME"],
-    password: ENV["SENDGRID_PASSWORD"],
+    user_name: ENV["S_USERNAME"],
+    password: ENV["S_PASSWORD"],
     authentication: "plain",
     enable_starttls_auto: true
   }
