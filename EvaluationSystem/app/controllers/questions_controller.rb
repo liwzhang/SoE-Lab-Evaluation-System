@@ -27,7 +27,15 @@ class QuestionsController < ApplicationController
     count = Question.count(:all)
     if count.nil? or count < 20
       @question = Question.new
-      @question.question_ID = 0
+      @question.question_ID = Question.last.question_ID 
+      if !(@question.question_ID.nil?)
+        @question.question_ID = (@question.question_ID % 20 )+ 1
+      else
+        @question.question_ID = 0
+      end
+      while Question.exists?(question_ID: @question.question_ID) do
+        @question.question_ID = (@question.question_ID % 20 )+ 1
+      end
     else
       flash[:alert] = "You can only have 20 questions."
       redirect_to action: "index"
@@ -45,7 +53,6 @@ class QuestionsController < ApplicationController
   # Creates a new question
   def create
     @question = Question.new(question_params)
-
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
