@@ -13,6 +13,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :question_ID %>
+    <%= form.number_field :question_ID %>
+  </div>
+
+  <div class="field">
     <%= form.label :category %>
     <%= form.select :category, [["Learning from Labs","Learning from Labs" ],
       ["Lab Instructor","Lab Instructor"], ["Lab Space and Equipment", "Lab Space and Equipment"],
