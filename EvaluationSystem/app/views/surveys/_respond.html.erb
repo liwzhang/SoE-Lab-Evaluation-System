@@ -39,8 +39,7 @@
                   &gt;3 <%= form.radio_button(:"Q#{question.question_ID}", ">3") %></td>
 
                 <% else %>
-                  <td><%= form.text_area :"Q#{question.question_ID}", maxlength: 500 %></td>
-                  <i>Note: 500 Characters Allowed</i>
+                  <td><%= form.text_area :"Q#{question.question_ID}", maxlength: 500 %><i> Note: 500 Characters Allowed</i></td>
 
                 <% end %>
               </div>
