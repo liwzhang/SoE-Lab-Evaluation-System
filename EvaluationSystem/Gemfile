@@ -41,7 +41,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Make errors more clear and better looking
-gem 'better_errors', '~> 2.5', '>= 2.5.1'
+gem 'better_errors', '~> 2.8'
 
 # A modern CSS framework based on Flexbox, makes the app look nice and spiffy
 gem 'bulma-rails', '~> 0.7.5'
